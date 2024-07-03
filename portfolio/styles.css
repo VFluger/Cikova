@@ -1,0 +1,203 @@
+h1 {
+  text-align: center;
+  color: var(--portfolio-color);
+  font-size: 10rem;
+  letter-spacing: -0.151rem;
+  line-height: 0.3em;
+  animation: letter-spacing 1s cubic-bezier(0.2, 0.8, 0.3, 0.95);
+}
+
+/*LOAD ANIMATIONS*/
+@keyframes letter-spacing {
+  0% {
+    letter-spacing: 1.5rem;
+    color: rgb(0, 139, 253);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: var(--portfolio-color);
+  }
+}
+
+@keyframes letter-spacing550 {
+  0% {
+    letter-spacing: 0.5rem;
+    color: rgb(0, 139, 253);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: var(--portfolio-color);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: letter-spacing 1s var(--smooth-out-bezier);
+  }
+
+  @media (max-width: 550px) {
+    h1 {
+      animation: letter-spacing550 1s var(--smooth-out-bezier) forwards;
+    }
+  }
+
+  .desc {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.2s;
+  }
+  .divider {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.3s;
+  }
+  .folder {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.6s;
+  }
+}
+.desc {
+  width: 60%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+  line-height: 1.7rem;
+  font-size: 1.2rem;
+  color: var(--dark-white);
+  text-align: center;
+}
+
+.portfolio-blue {
+  color: var(--portfolio-color);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 20vw;
+  }
+  .desc {
+    text-align: justify;
+    margin: 0;
+    margin-left: 5vw;
+    width: 90%;
+  }
+}
+
+.folder-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 2vw;
+  row-gap: 5vh;
+}
+
+#f1 {
+  background-image: url(../media/obrazy/v-zajeti-barev-2/Barevná-láska-2.jpg);
+}
+
+#f2 {
+  background-image: url(../media/obrazy/v-zajeti-barev/Den-a-Noc.jpg);
+}
+
+#f3 {
+  background-image: url(../media/obrazy/tajemstvi-tvari/TAJEMSTVÍ-TVÁŘÍ-IV.jpg);
+}
+
+.folder {
+  border-radius: 15px;
+  width: var(--image-width);
+  aspect-ratio: 7/5;
+  min-width: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  transition: all 300ms ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.fade-content {
+  border-radius: inherit;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  min-width: inherit;
+  min-height: inherit;
+  background-image: linear-gradient(
+    to bottom,
+    transparent -20%,
+    var(--background-color) 200%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dark-white);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.fade-content * {
+  margin: 15px 0;
+}
+
+.folder:hover::before {
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+.folder::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.2),
+    transparent 40%
+  );
+  content: "";
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+  --webkit-tap-highlight-color: transparent;
+}
+
+.folder-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: inherit;
+  transition: all 300ms ease-in-out;
+  background-size: 110%;
+}
+
+.folder-link {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: inherit;
+  min-height: inherit;
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+}
+
+@media (max-width: 377px) {
+  .folder {
+    width: 90vw;
+    min-width: 0px;
+  }
+}

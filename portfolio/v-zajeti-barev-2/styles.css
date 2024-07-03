@@ -1,0 +1,47 @@
+@keyframes letter-spacing {
+  0% {
+    letter-spacing: 1rem;
+    color: rgb(0, 255, 85);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: #41c200;
+  }
+}
+
+@keyframes letter-spacing550 {
+  0% {
+    letter-spacing: 0.5rem;
+    color: rgb(0, 255, 85);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: #41c200;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: letter-spacing 1s var(--smooth-out-bezier) forwards;
+  }
+  .desc {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.2s;
+  }
+  h2 {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.4s;
+  }
+  .divider {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.5s;
+  }
+  .painting-div-container {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.6s;
+  }
+}

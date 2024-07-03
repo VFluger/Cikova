@@ -1,0 +1,41 @@
+footer {
+  margin: 30px 0;
+}
+
+.footer-container {
+  margin: 0 auto;
+  background-color: var(--background-color-lighter);
+  width: 99%;
+  border-radius: 15px;
+  border-top: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.footer-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer-container div svg {
+  height: 20px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+}
+
+.copyright {
+  margin: 5px 0 !important;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-soc {
+  margin-top: 5px !important;
+}

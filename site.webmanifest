@@ -1,0 +1,14 @@
+{
+    "name": "Cikov\u00e1 ART",
+    "short_name": "Cikov\u00e1 ART",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

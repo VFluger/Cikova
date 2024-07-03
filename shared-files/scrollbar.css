@@ -1,0 +1,25 @@
+:root {
+  --background-color: #1e1e1e;
+  --background-color-light: #353535;
+  --background-color-lighter: #292929;
+  --dark-white: #dbdbdb;
+  --dark-text: #5a5a5a;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color-lighter);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}

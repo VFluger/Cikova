@@ -1,0 +1,167 @@
+h1 {
+  text-align: center;
+  color: var(--publikace-color);
+  font-size: 8rem;
+  font-weight: bold;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  width: 60%;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.7rem;
+  font-size: 1.1rem;
+  color: var(--dark-white);
+  text-align: center;
+}
+
+@keyframes letter-spacing {
+  0% {
+    letter-spacing: 1.5rem;
+    color: rgb(253, 215, 0);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: var(--publikace-color);
+  }
+}
+
+@keyframes letter-spacing550 {
+  0% {
+    letter-spacing: 0.5rem;
+    color: rgb(253, 215, 0);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: var(--publikace-color);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: letter-spacing 1s var(--smooth-out-bezier) forwards;
+  }
+
+  @media (max-width: 550px) {
+    h1 {
+      animation: letter-spacing550 1s var(--smooth-out-bezier) forwards;
+    }
+  }
+
+  .desc {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.2s
+  }
+
+  .divider {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.3s;
+  }
+
+  #book {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.5s;
+  }
+}
+
+.disabled-button:hover {
+  cursor: not-allowed;
+  transform: scale(1.1);
+  border: 2px solid #d64545;
+  color: #d64545;
+  font-weight: bold;
+}
+
+.book-container {
+  width: 95%;
+  max-width: 1000px;
+  height: 380px;
+  margin: 50px auto;
+  padding: 1%;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 25% 70%;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.book-container h3 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1%;
+}
+
+.book-container img {
+  width: 100%;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.main-text {
+  font-size: 1.1rem;
+  text-align: left;
+  letter-spacing: .01rem;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+blockquote {
+  margin: 0;
+  font-style: italic;
+  color: var(--dark-white)
+}
+
+.text-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.book-container button {
+  background-color: var(--background-color-lighter);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  padding: 1%;
+  border-radius: 10px;
+  transition: all 200ms;
+}
+
+.heading h3, .heading p {
+  text-align: center;
+}
+
+.heading p {
+  margin: 0;
+  margin-top: 5px;
+}
+
+.heading {
+  width: 100%;
+}
+
+.pdf-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--publikace-color);
+  border: 2px solid var(--publikace-color);
+  font-weight: bold;
+}
+
+.quote-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

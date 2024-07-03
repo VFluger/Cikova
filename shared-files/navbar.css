@@ -1,0 +1,220 @@
+.navbar {
+  background-color: var(--background-color-light);
+  width: 98vw;
+  height: 3rem;
+  margin: 10px auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 10px 5px 5px black;
+  box-sizing: border-box;
+}
+
+#home-link {
+  height: 100%;
+}
+
+#logo {
+  height: 100%;
+  padding: 0 10px;
+}
+
+.navbar-div {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar-div svg {
+  height: 35px;
+}
+
+.navbar-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-ul li a {
+  color: #d9d9d9;
+  text-decoration: none;
+}
+
+.navbar-ul li:nth-of-type(1) a:hover,
+.menu-ul li:nth-of-type(1) a:hover,
+.menu-ul li:nth-of-type(1) a:active {
+  color: var(--o-mne-color);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar-ul li:nth-of-type(2) a:hover,
+.menu-ul li:nth-of-type(2) a:hover,
+.menu-ul li:nth-of-type(2) a:active {
+  color: var(--portfolio-color);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar-ul li:nth-of-type(3) a:hover,
+.menu-ul li:nth-of-type(3) a:hover,
+.menu-ul li:nth-of-type(3) a:active {
+  color: var(--ac-art-color);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar-ul li:nth-of-type(4) a:hover,
+.menu-ul li:nth-of-type(4) a:hover,
+.menu-ul li:nth-of-type(4) a:active {
+  color: var(--publikace-color);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu {
+  width: 28px;
+  display: none;
+  margin-right: 3vw;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  color: white;
+}
+
+.menu-x {
+  width: 28px;
+  position: absolute;
+  right: calc(1% + 3vw);
+  top: 15px;
+  cursor: pointer;
+
+  transition: all 200ms ease-in-out;
+  opacity: 0;
+  transform: rotate(60deg);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-overlay .head {
+  background-color: var(--background-color-light);
+  width: 99vw;
+  height: 3rem;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 10px 5px 5px black;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  margin-top: 5vh;
+}
+
+.menu-ul a {
+  text-decoration: none;
+  color: var(--dark-white);
+  font-size: 10vw;
+}
+
+.navbar-soc {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.soc-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  margin-bottom: 6vh;
+  transform: translateY(100px);
+  transition: transform 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 25ms;
+}
+
+.menu-link {
+  width: 8vw;
+}
+
+.menu-ul > * {
+  transform: translateX(500px);
+  opacity: 1;
+}
+
+.menu-ul > *:nth-child(1) {
+  transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 10ms;
+}
+
+.menu-ul > *:nth-child(2) {
+  transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 50ms;
+}
+
+.menu-ul > *:nth-child(3) {
+  transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 100ms;
+}
+
+.menu-ul > *:nth-child(4) {
+  transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 150ms;
+}
+
+.menu-overlay h2 {
+  transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97);
+  opacity: 0;
+}
+
+main {
+  transition: filter 200ms ease-out;
+}
+
+@media (max-width: 460px) {
+  .navbar-ul,
+  .navbar-ul > li {
+    display: none;
+  }
+  .navbar .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/*SCROLL ANIMATION*/
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-hidden {
+    opacity: 0;
+    filter: blur(2px);
+    transition: all 1s var(--smooth-out-bezier) 100ms;
+  }
+  .scroll-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}

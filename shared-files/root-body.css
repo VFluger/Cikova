@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --background-color: #1e1e1e;
+  --background-color-light: #353535;
+  --background-color-lighter: #292929;
+  --dark-white: #c5c5c5;
+  --dark-text: #5a5a5a;
+  --hori-width: 45vw;
+  --vert-width: 35vw;
+  --image-width: 28vw;
+  --image-height: 20vw;
+  --ac-art-width: 25vw;
+  --ac-art-height: 33vw;
+  --o-mne-color: #fa984d;
+  --portfolio-color: #5cb1f7;
+  --ac-art-color: #a16dfc;
+  --publikace-color: #f7dd5c;
+  --smooth-out-bezier: cubic-bezier(0.2, 0.8, 0.3, 0.95);
+}
+body {
+  background-color: var(--background-color);
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.divider {
+  width: 90%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  margin: 40px auto;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-family: "Oswald";
+  font-weight: bolder;
+}

@@ -1,0 +1,51 @@
+.painting-div-container {
+  transition: filter 300ms var(--smooth-out-bezier);
+}
+
+.popup-bck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 998;
+  transition: opacity 1s var(--smooth-out-bezier),
+    visibility 1s var(--smooth-out-bezier);
+}
+
+.painting-popup {
+  position: fixed;
+  height: 95vh;
+  top: 50%;
+  left: 50%;
+  background-color: var(--background-color-lighter);
+  border-radius: 15px;
+  border: 2px solid var(--dark-text);
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 1s, visibility 1s;
+  transition-delay: 0.1s;
+  z-index: 999;
+}
+
+.painting-popup img {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.close-popup {
+  width: 25px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
