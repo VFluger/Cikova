@@ -233,18 +233,6 @@ section {
   border-radius: 10px;
 }
 
-#f1 {
-  background-image: url(../media/ac-art/cikova-ac-art-barvy.webp);
-}
-
-#f2 {
-  background-image: url(../media/ac-art/cikova-bytovy-design.webp);
-}
-
-#f3 {
-  background-image: url(../media/ac-art/cikova-modni-doplnky.webp);
-}
-
 .folder {
   border-radius: 15px;
   width: var(--ac-art-width);
@@ -474,7 +462,7 @@ section {
   position: absolute;
   display: none;
   opacity: 0;
-  transition: all 500ms;
+  transition: all 800ms;
   z-index: -1;
   width: fit-content;
 }

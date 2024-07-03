@@ -23,41 +23,46 @@ f1.onclick = () => (window.location.href = "./v-zajeti-barev-2/");
 f2.onclick = () => (window.location.href = "./v-zajeti-barev/");
 f3.onclick = () => (window.location.href = "./tajemstvi-tvari/");
 
-const f1ImageArray = [
-  "Barevná-láska-2.jpg",
-  "HRA-NA-SCHOVÁVANOU.jpg",
-  "USÍNÁNÍ-.jpg",
-];
-const f2ImageArray = [
-  "Den-a-Noc-ořez.jpg",
-  "Dvě-v-jedné-ořez.jpg",
-  "Mořské-mámení.jpg",
-];
-const f3ImageArray = [
-  "TAJEMSTVÍ-TVÁŘÍ-II.jpg",
-  "TAJEMSTVÍ-TVÁŘÍ-I.jpg",
-  "TAJEMSTVÍ-TVÁŘÍ-IV.jpg",
-];
+const container = document.querySelector(".folder-container");
 
-const BackgroundChange = (folder, i, array, path) => {
-  const delay = 1000 * i;
-  setTimeout(() => {
+const changeImages = (idOfParent) => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+  const imagesDivs = document.querySelectorAll(`#${idOfParent} img`);
+  console.log(imagesDivs);
+  let counter = 1;
+  let resetCounter = 0;
+  for (let i = imagesDivs.length - 1; i >= 0; i--) {
+    let delay = counter * 3000;
+    if (i <= 0) {
+      if (resetCounter > 50) {
+        continue;
+      }
+      resetCounter++;
+      i = imagesDivs.length - 1;
+      setTimeout(() => {
+        imagesDivs[0].style.opacity = 0;
+        imagesDivs[0].style.display = "none";
+      }, delay + 150);
+    }
     setTimeout(() => {
-      folder.style.opacity = "0";
-    }, delay - 300);
+      imagesDivs[i - 1].style.display = "block";
+      imagesDivs[i].style.opacity = "0";
+    }, delay - 100);
+
     setTimeout(() => {
-      folder.style.backgroundImage = `url(../media/obrazy/${path}/${
-        array[i - array.length * Math.floor(i / array.length)]
-      })`;
+      imagesDivs[i - 1].style.opacity = "1";
     }, delay);
+
     setTimeout(() => {
-      folder.style.opacity = "1";
-    }, delay + 300);
-  }, delay * 3);
+      imagesDivs[i].style.display = "none";
+    }, delay + 100);
+    counter++;
+  }
 };
 
-for (let i = 1; i < 10; i++) {
-  BackgroundChange(f1, i, f1ImageArray, "v-zajeti-barev-2");
-  BackgroundChange(f2, i, f2ImageArray, "v-zajeti-barev");
-  BackgroundChange(f3, i, f3ImageArray, "tajemstvi-tvari");
-}
+//changing the dress img
+changeImages("f1");
+changeImages("f2");
+changeImages("f3");
