@@ -205,19 +205,6 @@ main {
     align-items: center;
   }
 }
-
-@media (max-width: 460px) {
-  .navbar-ul,
-  .navbar-ul > li {
-    display: none;
-  }
-  .navbar .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 /*SCROLL ANIMATION*/
 @media (prefers-reduced-motion: no-preference) {
   .scroll-hidden {
