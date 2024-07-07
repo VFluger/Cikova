@@ -194,28 +194,16 @@ main {
   transition: filter 200ms ease-out;
 }
 
-@media screen and (max-width: 460px) {
-  .navbar-ul,
-  .navbar-ul > li {
-    display: none;
-  }
-  .navbar .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.navbar-ul,
+.navbar-ul > li {
+  display: none;
 }
-@media screen {
-  .navbar-ul,
-  .navbar-ul > li {
-    display: none;
-  }
-  .navbar .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.navbar .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /*SCROLL ANIMATION*/
 @media (prefers-reduced-motion: no-preference) {
   .scroll-hidden {
