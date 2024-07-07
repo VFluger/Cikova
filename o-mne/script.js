@@ -1,44 +1,54 @@
 scrollAnimation();
-
-const createOdometer = (el, value) => {
-  const odometer = new Odometer({
-    el: el,
-    value: 0,
-  });
-
-  let hasRun = false;
-
-  const options = {
-    threshold: [0, 0.1],
-  };
-
-  const callback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (!hasRun) {
-          odometer.update(value);
-          hasRun = true;
-        }
-      }
+try {
+  const createOdometer = (el, value) => {
+    const odometer = new Odometer({
+      el: el,
+      value: 0,
     });
+
+    let hasRun = false;
+
+    const options = {
+      threshold: [0, 0.1],
+    };
+
+    const callback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!hasRun) {
+            odometer.update(value);
+            hasRun = true;
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(el);
   };
 
-  const observer = new IntersectionObserver(callback, options);
-  observer.observe(el);
-};
+  const vystavaOdometer = document.querySelector(".vystava-odometer");
+  createOdometer(vystavaOdometer, 43);
 
-const vystavaOdometer = document.querySelector(".vystava-odometer");
-createOdometer(vystavaOdometer, 43);
+  const samostatnychOdometer = document.querySelector(".samostatnych-odometer");
+  createOdometer(samostatnychOdometer, 24);
 
-const samostatnychOdometer = document.querySelector(".samostatnych-odometer");
-createOdometer(samostatnychOdometer, 24);
+  const spolecnychOdometer = document.querySelector(".spolecnych-odometer");
+  createOdometer(spolecnychOdometer, 19);
 
-const spolecnychOdometer = document.querySelector(".spolecnych-odometer");
-createOdometer(spolecnychOdometer, 19);
+  const publikaceOdometer = document.querySelector(".publikace-odometer");
+  createOdometer(publikaceOdometer, 13);
+} catch (err) {
+  const vystavaOdometer = document.querySelector(".vystava-odometer");
+  const samostatnychOdometer = document.querySelector(".samostatnych-odometer");
+  const spolecnychOdometer = document.querySelector(".spolecnych-odometer");
+  const publikaceOdometer = document.querySelector(".publikace-odometer");
 
-const publikaceOdometer = document.querySelector(".publikace-odometer");
-createOdometer(publikaceOdometer, 13);
-
+  vystavaOdometer.innerText = "43";
+  samostatnychOdometer.innerText = "24";
+  spolecnychOdometer.innerText = "19";
+  publikaceOdometer.innerText = "13";
+}
 ////////////////////////////////////////////////////////////////
 //Scroll Year//
 
@@ -107,5 +117,4 @@ window.onscroll = updateYear;
 window.addEventListener("resize", () => {
   YearOffset = main.offsetHeight / 3.68;
   updateYear();
-  console.log("works");
 });

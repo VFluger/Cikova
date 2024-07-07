@@ -146,6 +146,14 @@ h6 {
   font-size: 1.5rem;
 }
 
+.folder img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: inherit;
+  transition: opacity 800ms;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -249,6 +257,7 @@ section {
   align-items: center;
   margin: 0 10px;
   transition: transform 300ms ease-in-out;
+  overflow: hidden;
 }
 
 .fade-content {
@@ -271,6 +280,7 @@ section {
   color: var(--dark-white);
   border: 2px solid rgba(255, 255, 255, 0.2);
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  z-index: 999;
 }
 
 .folder:hover .fade-content {

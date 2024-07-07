@@ -24,7 +24,7 @@ f3.onclick = () => (window.location.href = "./modni-doplnky/");
 
 ///INFINITE HORIZONTAL SCROLL ///
 const scrollers = document.querySelectorAll(".scroller");
-if (!window.matchMedia("(prefers-reduced-motion: reduce").matches) {
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   HorizontalScroll();
 }
 //just duplicating content in scroller, the animation is css
@@ -59,6 +59,7 @@ const changeHeightKabelka = () => {
     img.addEventListener("load", () => {
       kabelkaDiv.style.height = img.height + "px";
     });
+    kabelkaDiv.style.height = img.height + "px";
   });
 };
 
@@ -69,6 +70,7 @@ const changeHeightPdf = () => {
     img.addEventListener("load", () => {
       pdfDiv.style.height = img.height + "px";
     });
+    pdfDiv.style.height = img.height + "px";
   });
 };
 
@@ -90,7 +92,7 @@ const changeImages = (idOfParent) => {
   let counter = 1;
   let resetCounter = 0;
   for (let i = imagesDivs.length - 1; i >= 0; i--) {
-    let delay = counter * 3000;
+    let delay = counter * 4000;
     if (i <= 0) {
       if (resetCounter > 50) {
         continue;

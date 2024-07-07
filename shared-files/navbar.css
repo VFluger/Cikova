@@ -194,6 +194,18 @@ main {
   transition: filter 200ms ease-out;
 }
 
+@media screen and (max-width: 460px) {
+  .navbar-ul,
+  .navbar-ul > li {
+    display: none;
+  }
+  .navbar .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 460px) {
   .navbar-ul,
   .navbar-ul > li {

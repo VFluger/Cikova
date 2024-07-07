@@ -6,6 +6,14 @@ const changeWidth = () => {
       container.style.width = img.width + "px";
     }
   });
+  setTimeout(() => {
+    containers.forEach((container, index) => {
+      const img = document.querySelectorAll(".painting")[index];
+      if (img.complete) {
+        container.style.width = img.width + "px";
+      }
+    });
+  }, 1000);
 };
 
 const changeWidthDelayed = () => {

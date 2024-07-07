@@ -28,7 +28,7 @@
         <ul class="navbar-ul">
           <li><a href="./o-mne">O mně</a></li>
           <li><a href="./portfolio">Portfolio</a></li>
-          <li><a href="./ac.art">AC.ART</a></li>
+          <li><a href="./ac-art">AC.ART</a></li>
           <li><a href="./publikace">Publikace</a></li>
         </ul>
       </div>
@@ -64,7 +64,7 @@
           <ul class="menu-ul">
             <li><a href="./o-mne">O mně</a></li>
             <li><a href="./portfolio/">Portfolio</a></li>
-            <li><a href="./ac.art">AC.ART</a></li>
+            <li><a href="./ac-art">AC.ART</a></li>
             <li><a href="./publikace">Publikace</a></li>
           </ul>
           <div class="soc-links">
@@ -112,9 +112,61 @@
       </div>
     </nav>
     <main>
-      <section>
+      <header>
         <h1>CIKOVA ART</h1>
+        <p class="desc">
+          Vítejte na stránce <span class="main-color bold"> Aleny Cikové</span>,
+          známé malířky z Olomouce. Najdete zde informace, portfolio a další
+          zajímavosti.
+        </p>
+      </header>
+      <div class="divider"></div>
+      <section id="o-mne">
+        <div class="text-container">
+          <h2 class="section-heading" id="o-mne-heading">Kdo jsem?</h2>
+          <div class="text-with-btn">
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis adipisci ratione iusto placeat nostrum expedita,
+              aliquam rerum fuga, quo possimus facilis dolor in totam corporis,
+              ullam veritatis hic eos libero!
+            </p>
+            <button
+              class="btn o-mne-btn"
+              type="button"
+              onclick="window.location.href='./o-mne/'"
+            >
+              O MNĚ
+            </button>
+          </div>
+        </div>
+        <figure class="img-div">
+          <figcaption class="caption-heading">Alena Ciková</figcaption>
+          <img src="./media/o-mne-mobile.webp" alt="Foto Aleny Cikové" />
+        </figure>
       </section>
+      <div class="divider"></div>
+      <section id="portfolio">
+        <div class="scroll-hidden" id="television">
+          <div class="noise"></div>
+          <div class="television-animation"></div>
+          <h2 class="text-center television-animation-el">
+            Prohlédněte si moje portfolio
+          </h2>
+          <p class="text">blablabllaaaa</p>
+          <div class="img-container television-animation-el">
+            <img
+              src="./media/obrazy/Tajemstvi-tvari/tajemstvi-tvari-1.jpg"
+              alt="portfolio náhled 1"
+              style="transform: translateY(-20%)"
+            />
+          </div>
+        </div>
+      </section>
+      <div class="divider"></div>
+      <section id="ac-art"></section>
+      <div class="divider"></div>
+      <section id="publikace"></section>
     </main>
     <footer>
       <div class="footer-container">
@@ -214,8 +266,8 @@
         >
       </div>
     </footer>
+    <script src="shared-files/footer.js"></script>
+    <script src="./shared-files/navbar.js"></script>
+    <script src="script.js"></script>
   </body>
-  <script src="shared-files/footer.js"></script>
-  <script src="./shared-files/navbar.js"></script>
-  <script src="script.js"></script>
 </html>

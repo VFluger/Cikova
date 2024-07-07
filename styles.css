@@ -1,7 +1,21 @@
+:root {
+  --main-color: #d64545;
+}
+
 h1 {
   font-size: 10rem;
   text-align: center;
-  color: #d64545;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+figure {
+  padding: 0;
+  margin: 0;
 }
 
 @keyframes letter-spacing {
@@ -52,4 +66,289 @@ h1 {
     animation: opacity 1s var(--smooth-out-bezier) forwards;
     animation-delay: 0.6s;
   }
+}
+
+.desc {
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+  margin-bottom: 5rem;
+  line-height: 1.7rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+section {
+  width: 80%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+#o-mne {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  gap: 10px;
+}
+
+#o-mne img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-heading {
+  font-size: 3rem;
+  font-family: "Oswald", "Helvetica";
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+#o-mne-heading {
+  color: var(--o-mne-color);
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.main-color {
+  color: var(--main-color);
+}
+
+.caption-heading {
+  font-size: 2rem;
+  font-family: "Oswald", "Helvetica";
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.text-with-btn {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-with-btn p {
+  width: 100%;
+}
+
+.text {
+  font-size: 1.2rem;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: var(--background-color-lighter);
+  color: white;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: center;
+  transition: all 300ms var(--smooth-out-bezier);
+}
+
+.o-mne-btn {
+  margin-top: 30px;
+  &:hover {
+    color: var(--o-mne-color);
+    font-weight: bold;
+    border: 3px solid var(--o-mne-color);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .o-mne-btn:hover {
+    scale: 1.2;
+  }
+}
+
+#portfolio-heading {
+  color: var(--portfolio-color);
+  text-align: center;
+}
+
+#television {
+  width: 80%;
+  aspect-ratio: 16/9;
+  border: 2px solid var(--dark-white);
+  border-radius: 1rem;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+#television:hover {
+  cursor: pointer;
+}
+
+.noise {
+  position: absolute;
+  pointer-events: none;
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  background: transparent
+    url(https://www.dropbox.com/s/h7ab1c82ctzy83n/noise.png?raw=1) 0 0;
+  background-size: 320px 320px;
+  opacity: 0.2;
+  animation: noise 1s steps(8, end) infinite both;
+}
+
+@keyframes noise {
+  0% {
+    transform: translateX(0px, 0px);
+  }
+  10% {
+    transform: translate(-100px, 100px);
+  }
+  20% {
+    transform: translate(150px, -100px);
+  }
+  30% {
+    transform: translate(-100px, 100px);
+  }
+  40% {
+    transform: translate(100px, -150px);
+  }
+  50% {
+    transform: translate(-100px, 200px);
+  }
+  60% {
+    transform: translate(-200px, -100px);
+  }
+  70% {
+    transform: translateY(50px, 100px);
+  }
+  80% {
+    transform: translate(100px, -150px);
+  }
+  90% {
+    transform: translate(0px, 200px);
+  }
+  100% {
+    transform: translate(-100px, 100px);
+  }
+}
+
+.television-animation {
+  width: 1px;
+  height: 5px;
+  background-color: white;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 999;
+}
+
+div#television.scroll-hidden.scroll-visible .television-animation {
+  animation: turn-on-television 1s forwards;
+}
+
+div#television.scroll-hidden.scroll-visible .television-animation-el {
+  animation: television-appear 1s forwards;
+}
+
+@keyframes television-appear-img {
+  50% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  75% {
+    opacity: 0.7;
+    visibility: visible;
+  }
+}
+
+@keyframes television-appear {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  75% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes turn-on-television {
+  0% {
+    width: 1px;
+    left: 50%;
+  }
+  30% {
+    width: 100%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    height: 5px;
+    left: 0;
+    border-radius: 0;
+    top: 50%;
+  }
+  75% {
+    height: 100%;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    opacity: 0;
+  }
+}
+
+#television h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+#portfolio-btn:hover {
+  color: var(--portfolio-color);
+  scale: 1.2;
+  border: 3px solid var(--portfolio-color);
+}
+
+.img-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.img-container img {
+  height: max-content;
+  width: 100%;
+  border-radius: inherit;
+}
+
+#portfolio p {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
 }

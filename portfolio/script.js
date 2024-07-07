@@ -30,7 +30,6 @@ const changeImages = (idOfParent) => {
     return;
   }
   const imagesDivs = document.querySelectorAll(`#${idOfParent} img`);
-  console.log(imagesDivs);
   let counter = 1;
   let resetCounter = 0;
   for (let i = imagesDivs.length - 1; i >= 0; i--) {

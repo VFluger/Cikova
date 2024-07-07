@@ -53,7 +53,7 @@ h1 {
   .desc {
     opacity: 0;
     animation: opacity 1s var(--smooth-out-bezier) forwards;
-    animation-delay: 0.2s
+    animation-delay: 0.2s;
   }
 
   .divider {
@@ -89,6 +89,7 @@ h1 {
   justify-items: center;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
 }
 
 .book-container h3 {
@@ -106,7 +107,7 @@ h1 {
 .main-text {
   font-size: 1.1rem;
   text-align: left;
-  letter-spacing: .01rem;
+  letter-spacing: 0.01rem;
   width: 80%;
   margin-top: 20px;
   margin-bottom: 0;
@@ -115,7 +116,7 @@ h1 {
 blockquote {
   margin: 0;
   font-style: italic;
-  color: var(--dark-white)
+  color: var(--dark-white);
 }
 
 .text-container {
@@ -137,7 +138,8 @@ blockquote {
   transition: all 200ms;
 }
 
-.heading h3, .heading p {
+.heading h3,
+.heading p {
   text-align: center;
 }
 
@@ -164,4 +166,99 @@ blockquote {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.mobile-only {
+  display: none;
+  opacity: 0;
+  transition: all 300ms var(--smooth-out-bezier);
+}
+
+.mobile-img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+@media (max-width: 765px) {
+  h1 {
+    font-size: 17vw;
+  }
+  .desc {
+    width: 95vw;
+  }
+}
+
+@media (max-width: 420px) {
+  .desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .book-container {
+    width: 80%;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    height: auto;
+    position: relative;
+  }
+  .book-container .img-div {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    opacity: 0.7;
+  }
+  .img-div img {
+    height: fit-content;
+    width: fit-content;
+  }
+  .main-text {
+    margin: 50px;
+  }
+  .book-container .disabled-button {
+    color: red;
+    font-weight: bolder;
+    padding: 5px 10px;
+  }
+  .book-container button {
+    color: var(--publikace-color);
+    font-weight: bolder;
+    padding: 5px 10px;
+  }
+  .book-container .no-transform {
+    transform: none;
+  }
+  .book-container .no-top-margin {
+    margin-top: 0;
+  }
+  blockquote {
+    color: rgb(228, 225, 225);
+  }
+  #invence {
+    transform: translateY(-200px);
+  }
+  #byt {
+    transform: translate(50px, -50px);
+  }
+  #verse {
+    transform: translateY(-120px);
+  }
+  .mobile-only {
+    display: block;
+  }
+  .mobile-img {
+    opacity: 0.7;
+  }
+  .desktop-only {
+    display: none;
+    opacity: 0;
+  }
+}
+.white-text {
+  color: white;
 }

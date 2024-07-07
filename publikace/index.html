@@ -28,7 +28,7 @@
         <ul class="navbar-ul">
           <li><a href="../o-mne">O mně</a></li>
           <li><a href="../portfolio">Portfolio</a></li>
-          <li><a href="../ac.art">AC.ART</a></li>
+          <li><a href="../ac-art">AC.ART</a></li>
           <li><a href="../publikace">Publikace</a></li>
         </ul>
       </div>
@@ -64,7 +64,7 @@
           <ul class="menu-ul">
             <li><a href="../../o-mne">O mně</a></li>
             <li><a href="../../portfolio">Portfolio</a></li>
-            <li><a href="../../ac.art">AC.ART</a></li>
+            <li><a href="../../ac-art">AC.ART</a></li>
             <li><a href="../../publikace">Publikace</a></li>
           </ul>
           <div class="soc-links">
@@ -119,14 +119,15 @@
           a další literatuře. Zde je seznam několika z nich i s odkazy.
         </p>
       </section>
-      <div class="divider"></div>
       <section id="book">
         <div class="book-container scroll-hidden">
-          <img
-            src="../media/publikace/thumbnail/Křížová-cesta.webp"
-            alt="Křížová cesta náhled"
-            loading="lazy"
-          />
+          <div class="img-div">
+            <img
+              src="../media/publikace/thumbnail/Křížová-cesta.webp"
+              alt="Křížová cesta náhled"
+              loading="lazy"
+            />
+          </div>
           <div class="text-container">
             <div class="heading">
               <h3>Křížová cesta</h3>
@@ -144,11 +145,13 @@
           </div>
         </div>
         <div class="book-container scroll-hidden">
-          <img
-            src="../media/publikace/thumbnail/Verše-psané-štětcem.webp"
-            alt="Verše psané štětcem náhled"
-            loading="lazy"
-          />
+          <div class="img-div" id="verse">
+            <img
+              src="../media/publikace/thumbnail/Verše-psané-štětcem.webp"
+              alt="Verše psané štětcem náhled"
+              loading="lazy"
+            />
+          </div>
           <div class="text-container">
             <div class="heading">
               <h3>Verše psané štetcem</h3>
@@ -165,11 +168,21 @@
           </div>
         </div>
         <div class="book-container scroll-hidden">
-          <img
-            src="../media/publikace/thumbnail/invence-thumbnail.webp"
-            alt="Invence náhled"
-            loading="lazy"
-          />
+          <div class="img-div no-transform" id="invence">
+            <!-- >TODO: different photo for smaller screens -->
+            <img
+              src="../media/publikace/thumbnail/invence-thumbnail.webp"
+              alt="Invence náhled"
+              loading="lazy"
+              class="desktop-only"
+            />
+            <img
+              class="mobile-only mobile-img"
+              style="transform: translateX(-30%)"
+              src="../media/publikace/thumbnail/invence-mobile.png"
+              alt="Invence náhled mobilní verze"
+            />
+          </div>
           <div class="text-container">
             <div class="heading">
               <h3>Invence</h3>
@@ -180,27 +193,31 @@
                 Katalog obsahující zlomek všeho, co lze najít pod značkou
                 AC.ARTfashion.
               </p>
-              <blockquote class="main-text">
+              <blockquote class="main-text no-top-margin">
                 "Je dobré snít a věřit, že sen se může uskutečnit. Když hodně
                 sníte a hodně věříte, je otázkou času, kdy sny se zhmotní a
-                stanou se skutečností." - Alena Ciková
+                stanou se skutečností."<span class="white-text">
+                  - Alena Ciková
+                </span>
               </blockquote>
             </div>
             <button
               type="button"
               class="book-button pdf-button"
-              onclick="window.location.href = '../media/publikace/invence-katalog.pdf'"
+              onclick="window.open('../media/publikace/invence-katalog.pdf', '_blank')"
             >
               Otevřít
             </button>
           </div>
         </div>
         <div class="book-container scroll-hidden">
-          <img
-            src="../media/publikace/thumbnail/ac-art-fashion-thumbnail.webp"
-            alt="AC ART fashion náhled"
-            loading="lazy"
-          />
+          <div class="img-div no-transform">
+            <img
+              src="../media/publikace/thumbnail/ac-art-fashion-thumbnail.webp"
+              alt="AC ART fashion náhled"
+              loading="lazy"
+            />
+          </div>
           <div class="text-container">
             <div class="heading">
               <h3>AC.ART fashion</h3>
@@ -211,26 +228,30 @@
                 Katalog modelů s motivy a názvy obrazů s Kristínkou Kloubkovou a
                 s předváděnými modely různých přehlídek.
               </p>
-              <blockquote class="main-text">
+              <blockquote class="main-text no-top-margin">
                 "Naslouchat barvám je jako přátelit se s anděly a rozhovory s
-                oběma jsou barevná křídla naplnění." - Alena Ciková
+                oběma jsou barevná křídla naplnění."<span class="white-text">
+                  - Alena Ciková</span
+                >
               </blockquote>
             </div>
             <button
               type="button"
               class="book-button pdf-button"
-              onclick="window.location.href = '../media/publikace/ac-art-fashion-katalog.pdf'"
+              onclick="window.open('../media/publikace/ac-art-fashion-katalog.pdf', '_blank')"
             >
               Otevřít
             </button>
           </div>
         </div>
         <div class="book-container scroll-hidden">
-          <img
-            src="../media/publikace/thumbnail/galerie_obrazu.webp"
-            alt="Galerie obrazů náhled"
-            loading="lazy"
-          />
+          <div class="img-div">
+            <img
+              src="../media/publikace/thumbnail/galerie_obrazu.webp"
+              alt="Galerie obrazů náhled"
+              loading="lazy"
+            />
+          </div>
           <div class="text-container">
             <div class="heading">
               <h3>Katalog obrazů</h3>
@@ -243,21 +264,23 @@
             <button
               type="button"
               class="book-button pdf-button"
-              onclick="window.location.href = '../media/publikace/galerie-obrazu.pdf'"
+              onclick="window.open('../media/publikace/galerie-obrazu.pdf', '_blank')"
             >
               Otevřít
             </button>
           </div>
         </div>
         <div class="book-container scroll-hidden">
-          <img
-            src="../media/publikace/thumbnail/bytovy-dizajn.jpg"
-            alt="Galerie obrazů náhled"
-            loading="lazy"
-          />
+          <div class="img-div" id="byt">
+            <img
+              src="../media/publikace/thumbnail/bytovy-dizajn.jpg"
+              alt="Galerie obrazů náhled"
+              loading="lazy"
+            />
+          </div>
           <div class="text-container">
             <div class="heading">
-              <h3>Bytový dizajn</h3>
+              <h3>Bytový design</h3>
               <p>Katalog - 2016</p>
             </div>
             <p class="main-text">
@@ -267,7 +290,7 @@
             <button
               type="button"
               class="book-button pdf-button"
-              onclick="window.location.href = '../media/publikace/bytovy-dizajn.pdf'"
+              onclick="window.open('../media/publikace/bytovy-dizajn.pdf', '_blank')"
             >
               Otevřít
             </button>
