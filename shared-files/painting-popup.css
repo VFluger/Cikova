@@ -30,11 +30,42 @@
   transition: opacity 1s, visibility 1s;
   transition-delay: 0.1s;
   z-index: 999;
+  transition: all 500ms var(--smooth-out-bezier);
 }
 
 .painting-popup img {
   height: 100%;
   border-radius: inherit;
+  transition: all 500ms var(--smooth-out-bezier);
+}
+
+.painting-popup .arrow-left,
+.painting-popup .arrow-right {
+  width: 5vw;
+  max-width: 30px;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.painting-popup .arrow-right {
+  right: 0;
+  margin-right: 0.7vw;
+}
+
+.painting-popup .arrow-left {
+  left: 0;
+  margin-left: 0.7vw;
+}
+
+.arrow-left svg,
+.arrow-right svg {
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .close-popup {
