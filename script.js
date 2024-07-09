@@ -50,7 +50,7 @@ const animationObserver = new IntersectionObserver(
       }
     });
   },
-  { root: null, rootMargin: "0px", threshold: 0.5 }
+  { root: null, rootMargin: "0px", threshold: observerThreshold }
 );
 
 animationObserver.observe(portfolioTelevision);
@@ -60,3 +60,25 @@ portfolioTelevision.addEventListener("click", () => {
 });
 
 changeImages("television");
+
+const acImgContent = document.querySelectorAll("#ac-art .img-container");
+acImgContent.forEach((container) => {
+  container.addEventListener("click", () => {
+    const id = container.id;
+    console.log(id);
+    switch (id) {
+      case "model":
+        window.location.href = "./ac-art#dress";
+        break;
+      case "byt":
+        window.location.href = "./ac-art/bytovy-design";
+        break;
+      case "moda":
+        window.location.href = "./ac-art/modni-doplnky";
+        break;
+      case "barvy":
+        window.location.href = "./ac-art/v-zajeti-barev";
+        break;
+    }
+  });
+});

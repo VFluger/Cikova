@@ -406,11 +406,26 @@ div#television.animation-start .television-animation-el {
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.2);
   position: relative;
+  transition: all 300ms var(--smooth-out-bezier);
+  &:hover {
+    cursor: pointer;
+    border: 3px solid var(--ac-art-color);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #ac-art .img-container:hover {
+    scale: 1.02;
+    & img {
+      scale: 1.1;
+    }
+  }
 }
 
 #ac-art .img-container img {
   width: 100%;
   scale: 1.05;
+  transition: scale 500ms var(--smooth-out-bezier);
 }
 
 #ac-art .text-container {
@@ -433,4 +448,8 @@ div#television.animation-start .television-animation-el {
   margin: 0;
   font-weight: normal;
   font-size: 1.2rem;
+}
+
+.publikace-heading {
+  color: var(--publikace-color);
 }
