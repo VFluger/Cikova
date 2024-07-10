@@ -18,6 +18,7 @@
   --ac-art-color: #a16dfc;
   --publikace-color: #f7dd5c;
   --smooth-out-bezier: cubic-bezier(0.2, 0.8, 0.3, 0.95);
+  --cactus-color: #73994c;
 }
 body {
   background-color: var(--background-color);
@@ -54,4 +55,8 @@ body {
 h1 {
   font-family: "Oswald", "Helvetica";
   font-weight: bolder;
+}
+
+.bold {
+  font-weight: bold;
 }

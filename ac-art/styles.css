@@ -146,10 +146,6 @@ h6 {
   transition: opacity 800ms;
 }
 
-.bold {
-  font-weight: bold;
-}
-
 main {
   display: flex;
   flex-direction: column;
