@@ -163,11 +163,20 @@ body {
   font-size: 1.4vw;
   letter-spacing: normal;
   padding-left: 13%;
+  color: white;
 }
 
 .slide2 h2 {
   padding-left: 10%;
   font-size: 5vw;
+}
+
+.vystava-container {
+  color: var(--portfolio-color);
+}
+
+.publikace-container {
+  color: var(--publikace-color);
 }
 
 .slide2 h2:nth-of-type(2) {
@@ -308,6 +317,12 @@ body {
     width: 100%;
   }
 
+  .mobile-flex {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30%;
+  }
+
   .slide2 {
     background: url(../media/cikova-vystava-mobile.webp);
   }
@@ -365,7 +380,7 @@ body {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   h1 {
     font-size: 2rem;
     letter-spacing: -0.01em;
@@ -380,15 +395,23 @@ body {
     height: 150vw;
   }
 
-  .bio {
-    font-size: 0.9rem;
-  }
-
   .rebel {
     font-size: 2rem;
   }
 
   .biografie {
+    font-size: 3rem;
+  }
+
+  .mobile-flex {
+    flex-direction: column;
+    margin-bottom: 10%;
+  }
+  .mobile-flex p {
+    margin-bottom: 5%;
+    font-size: 1.2rem;
+  }
+  .mobile-flex h2 {
     font-size: 3rem;
   }
 }
@@ -399,7 +422,7 @@ body {
   }
 }
 
-@media (max-width: 470px) {
+@media (max-width: 570px) {
   .slide1 {
     height: 200vw;
   }
@@ -409,12 +432,8 @@ body {
     background: linear-gradient(transparent, var(--background-color) 60%);
   }
 
-  .slide2 h2 {
-    font-size: 1.5rem;
-  }
-
-  .slide2 p {
-    font-size: 1rem;
+  .mobile-flex h2 {
+    font-size: 2rem;
   }
 
   .year-bio {
@@ -422,21 +441,9 @@ body {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 420px) {
   h1 {
     display: none;
-  }
-
-  .bio {
-    font-size: 0.8rem;
-  }
-
-  .rebel {
-    font-size: 1.2rem;
-  }
-
-  .rebel-desc {
-    font-size: 0.8rem;
   }
 
   .name {
@@ -444,11 +451,12 @@ body {
   }
 
   .slide1 {
-    height: 800px;
+    height: 1000px;
   }
 
   .slide1::before {
-    height: 800px;
+    height: 1000px;
+    background: linear-gradient(transparent, var(--background-color) 50%);
   }
 
   .slide2 {
@@ -459,6 +467,10 @@ body {
   .slide2::before {
     height: 400px;
     background: linear-gradient(transparent, var(--background-color) 70%);
+  }
+
+  .mobile-flex p {
+    font-size: 1.1rem;
   }
 
   .biografie {

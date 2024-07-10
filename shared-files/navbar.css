@@ -199,6 +199,10 @@ main {
   transition: filter 200ms ease-out;
 }
 
+nav h2 {
+  font-size: 1.5em;
+}
+
 @media screen and (max-width: 460px) {
   .navbar-ul,
   .navbar-ul > li {

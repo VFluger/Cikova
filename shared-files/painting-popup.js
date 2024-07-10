@@ -116,6 +116,24 @@ const imgPopup = () => {
     console.error("Invalid setBy parameter. Expected 'width' or 'height'.");
   };
 
+  const setPopupDimensionsAcordingToDevice = (popupImg) => {
+    const isVertical = Math.floor(popupImg.width / popupImg.height)
+      ? false
+      : true;
+    if (!isVertical) {
+      setPopupDimensions("height");
+      if (popupImg.width >= window.innerWidth) {
+        setPopupDimensions("width");
+      }
+    }
+    if (isVertical) {
+      setPopupDimensions("height");
+      if (popupImg.height >= window.innerHeight) {
+        setPopupDimensions("width");
+      }
+    }
+  };
+
   const nextImgBtn = document.querySelector(".arrow-right");
   const prevImgBtn = document.querySelector(".arrow-left");
 
@@ -143,18 +161,7 @@ const imgPopup = () => {
           console.error("Error:", error);
         });
       //set the right dimensions
-      if (img.classList.contains("hori-img")) {
-        setPopupDimensions("height");
-        if (popupImg.width >= window.innerWidth) {
-          setPopupDimensions("width");
-        }
-      }
-      if (img.classList.contains("vert-img")) {
-        setPopupDimensions("height");
-        if (popupImg.height >= window.innerHeight) {
-          setPopupDimensions("width");
-        }
-      }
+      setPopupDimensionsAcordingToDevice(popupImg);
       openPopup();
     });
   });
@@ -169,6 +176,7 @@ const imgPopup = () => {
     currentImg.style.opacity = 0;
     setTimeout(() => {
       currentImg.src = path;
+      setPopupDimensionsAcordingToDevice(currentImg);
       currentImg.style.opacity = 1;
     }, 300);
   };

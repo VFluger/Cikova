@@ -64,14 +64,27 @@ let yearRanges = [
 ];
 const main = document.querySelector("main");
 
-let YearOffset = main.offsetHeight / 3.8;
 window.addEventListener("load", updateYear);
 
+let yearOffset = 1344; //fallback value just in case
+
+//setting the offset of year, size of device changes the offset
+//Sets offset to scroll position when year seen
+const yearObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      yearOffset = window.scrollY;
+      console.log(yearOffset);
+    }
+  });
+});
+
+yearObserver.observe(year);
+
 function updateYear() {
-  let scrollPosition = window.scrollY - YearOffset;
+  let scrollPosition = window.scrollY - yearOffset;
   let yearInt = parseInt(year.innerHTML, 10);
   newYear = 1962 + Math.floor(scrollPosition / 36);
-
   if (newYear < yearRanges[0].startYear) {
     document.querySelectorAll(".year-bio").forEach((element) => {
       element.style.opacity = "0";
