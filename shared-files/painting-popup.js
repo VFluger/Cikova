@@ -26,9 +26,10 @@ const imgPopup = () => {
               object.fileName ===
               decodeURIComponent(getFileNameFromPath(img.src))
             ) {
+              const nextIndex = data.indexOf(object) + 1;
+              const previousIndex = data.indexOf(object) - 1;
               switch (direction) {
                 case "next":
-                  const nextIndex = data.indexOf(object) + 1;
                   if (nextIndex < data.length) {
                     resolve(data[nextIndex].fileName);
                   } else {
@@ -36,7 +37,6 @@ const imgPopup = () => {
                   }
                   break;
                 case "previous":
-                  const previousIndex = data.indexOf(object) - 1;
                   if (previousIndex >= 0) {
                     resolve(data[previousIndex].fileName);
                   } else {
@@ -49,6 +49,24 @@ const imgPopup = () => {
                     resolve("first");
                   }
                   if (index === data.length - 1) {
+                    resolve("last");
+                  }
+                  resolve(null);
+                  break;
+                case "checkNext":
+                  if (nextIndex === 0) {
+                    resolve("first");
+                  }
+                  if (nextIndex === data.length - 1) {
+                    resolve("last");
+                  }
+                  resolve(null);
+                  break;
+                case "checkPrevious":
+                  if (previousIndex === 0) {
+                    resolve("first");
+                  }
+                  if (previousIndex === data.length - 1) {
                     resolve("last");
                   }
                   resolve(null);
@@ -116,6 +134,10 @@ const imgPopup = () => {
           if (answer === "last") {
             nextImgBtn.style.display = "none";
           }
+          if (!answer) {
+            prevImgBtn.style.display = "block";
+            nextImgBtn.style.display = "block";
+          }
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -162,7 +184,17 @@ const imgPopup = () => {
         console.error("Error:", error);
         return;
       });
-    prevImgBtn.style.display = "block";
+    getFileNameOfNextOrPreviousObject(currentImg, "checkNext").then(
+      (answer) => {
+        if (answer === "last") {
+          nextImgBtn.style.display = "none";
+        }
+        if (!answer) {
+          nextImgBtn.style.display = "block";
+          prevImgBtn.style.display = "block";
+        }
+      }
+    );
   });
   prevImgBtn.addEventListener("click", () => {
     getFileNameOfNextOrPreviousObject(currentImg, "previous")
@@ -172,6 +204,18 @@ const imgPopup = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-    nextImgBtn.style.display = "block";
+    getFileNameOfNextOrPreviousObject(currentImg, "checkPrevious").then(
+      (answer) => {
+        if (answer === "first") {
+          prevImgBtn.style.display = "none";
+        }
+        if (!answer) {
+          prevImgBtn.style.display = "block";
+          nextImgBtn.style.display = "block";
+        }
+      }
+    );
   });
+
+  popupBackground.addEventListener("click", closePopup);
 };
