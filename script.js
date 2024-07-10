@@ -65,7 +65,6 @@ const acImgContent = document.querySelectorAll("#ac-art .img-container");
 acImgContent.forEach((container) => {
   container.addEventListener("click", () => {
     const id = container.id;
-    console.log(id);
     switch (id) {
       case "model":
         window.location.href = "./ac-art#dress";
@@ -78,6 +77,26 @@ acImgContent.forEach((container) => {
         break;
       case "barvy":
         window.location.href = "./ac-art/v-zajeti-barev";
+        break;
+    }
+  });
+});
+
+const publikaceImgContent = document.querySelectorAll(
+  "#publikace .img-container"
+);
+publikaceImgContent.forEach((container) => {
+  container.addEventListener("click", () => {
+    const id = container.id;
+    switch (id) {
+      case "fashion":
+        window.location.href = "./media/publikace/ac-art-fashion-katalog.pdf";
+        break;
+      case "cesta":
+        window.location.href = "./publikace";
+        break;
+      case "invence":
+        window.location.href = "./media/publikace/invence-katalog.pdf";
         break;
     }
   });

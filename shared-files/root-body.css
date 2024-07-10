@@ -29,6 +29,7 @@ body {
   font-weight: normal;
   font-style: normal;
   box-sizing: border-box;
+  line-height: 1.3;
 }
 
 * {
