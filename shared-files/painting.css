@@ -65,6 +65,7 @@ h2 {
     var(--background-color) 110%
   );
   border-radius: inherit;
+  padding: 0 5px;
 }
 
 .painting {

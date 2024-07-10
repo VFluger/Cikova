@@ -51,10 +51,6 @@ const changeImages = (idOfParent) => {
     setTimeout(() => {
       imagesDivs[i - 1].style.opacity = "1";
     }, delay);
-
-    setTimeout(() => {
-      imagesDivs[i].style.opacity = "0";
-    }, delay + 100);
     counter++;
   }
 };
