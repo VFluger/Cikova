@@ -26,21 +26,33 @@ const imgPopup = () => {
               object.fileName ===
               decodeURIComponent(getFileNameFromPath(img.src))
             ) {
-              if (direction === "next") {
-                const nextIndex = data.indexOf(object) + 1;
-                if (nextIndex < data.length) {
-                  resolve(data[nextIndex].fileName);
-                } else {
-                  resolve();
-                }
-              }
-              if (direction === "previous") {
-                const previousIndex = data.indexOf(object) - 1;
-                if (previousIndex >= 0) {
-                  resolve(data[previousIndex].fileName);
-                } else {
-                  resolve();
-                }
+              switch (direction) {
+                case "next":
+                  const nextIndex = data.indexOf(object) + 1;
+                  if (nextIndex < data.length) {
+                    resolve(data[nextIndex].fileName);
+                  } else {
+                    resolve();
+                  }
+                  break;
+                case "previous":
+                  const previousIndex = data.indexOf(object) - 1;
+                  if (previousIndex >= 0) {
+                    resolve(data[previousIndex].fileName);
+                  } else {
+                    resolve();
+                  }
+                  break;
+                case "check":
+                  const index = data.indexOf(object);
+                  if (index === 0) {
+                    resolve("first");
+                  }
+                  if (index === data.length - 1) {
+                    resolve("last");
+                  }
+                  resolve(null);
+                  break;
               }
             }
           });
@@ -86,11 +98,29 @@ const imgPopup = () => {
     console.error("Invalid setBy parameter. Expected 'width' or 'height'.");
   };
 
+  const nextImgBtn = document.querySelector(".arrow-right");
+  const prevImgBtn = document.querySelector(".arrow-left");
+
+  //when image is clicked, open popup and change image
+  //check if first or last, disable btns
   imgDivs.forEach((div) => {
     div.addEventListener("click", () => {
       const img = div.querySelector("img");
       const popupImg = popup.querySelector("img");
       popupImg.src = img.src;
+      getFileNameOfNextOrPreviousObject(img, "check")
+        .then((answer) => {
+          if (answer === "first") {
+            prevImgBtn.style.display = "none";
+          }
+          if (answer === "last") {
+            nextImgBtn.style.display = "none";
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      //set the right dimensions
       if (img.classList.contains("hori-img")) {
         setPopupDimensions("height");
         if (popupImg.width >= window.innerWidth) {
@@ -121,8 +151,6 @@ const imgPopup = () => {
     }, 300);
   };
 
-  const nextImgBtn = document.querySelector(".arrow-right");
-  const prevImgBtn = document.querySelector(".arrow-left");
   const currentImg = popup.querySelector("img");
 
   nextImgBtn.addEventListener("click", () => {
@@ -134,6 +162,7 @@ const imgPopup = () => {
         console.error("Error:", error);
         return;
       });
+    prevImgBtn.style.display = "block";
   });
   prevImgBtn.addEventListener("click", () => {
     getFileNameOfNextOrPreviousObject(currentImg, "previous")
@@ -143,5 +172,6 @@ const imgPopup = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+    nextImgBtn.style.display = "block";
   });
 };

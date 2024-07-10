@@ -42,21 +42,15 @@ const changeImages = (idOfParent) => {
       i = imagesDivs.length - 1;
       setTimeout(() => {
         imagesDivs[0].style.opacity = 0;
-        imagesDivs[0].style.display = "none";
       }, delay + 150);
     }
     setTimeout(() => {
-      imagesDivs[i - 1].style.display = "block";
       imagesDivs[i].style.opacity = "0";
     }, delay - 100);
 
     setTimeout(() => {
       imagesDivs[i - 1].style.opacity = "1";
     }, delay);
-
-    setTimeout(() => {
-      imagesDivs[i].style.display = "none";
-    }, delay + 100);
     counter++;
   }
 };
