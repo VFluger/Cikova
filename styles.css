@@ -8,6 +8,7 @@ h1 {
   text-align: center;
   color: var(--main-color);
   margin-bottom: 10px;
+  white-space: nowrap;
 }
 
 .text-center {
@@ -349,6 +350,7 @@ div#television.animation-start .television-animation-el {
   height: max-content;
   width: 100%;
   border-radius: inherit;
+  transform: translateY(-20%);
 }
 
 #portfolio p {
@@ -467,7 +469,7 @@ div#television.animation-start .television-animation-el {
 }
 
 .publikace-btn {
-  margin: 20px 0;
+  margin-left: 30px;
   &:hover {
     color: var(--publikace-color);
     font-weight: bold;
@@ -564,4 +566,117 @@ div#television.animation-start .television-animation-el {
 
 #publikace .button-caption {
   font-size: 1.5rem;
+}
+
+.go-to-publikace {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+@media (max-width: 840px) {
+  h1 {
+    font-size: 20vw;
+  }
+  .desc {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 870px) {
+  #o-mne {
+    grid-template-columns: 1fr;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+  #o-mne .text-container {
+    margin-top: 500px;
+  }
+  #o-mne .text-with-btn {
+    margin: 0 auto;
+  }
+  #o-mne img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  .o-mne-btn {
+    margin: 20px 0;
+  }
+  #television {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .go-to-publikace {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  #o-mne .text-container {
+    margin-top: 400px;
+  }
+  #publikace .content-container {
+    width: 100%;
+  }
+  #publikace .text {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  #o-mne {
+    padding: 0;
+  }
+  #o-mne .text-container {
+    width: 100%;
+    margin-top: 300px;
+    background: linear-gradient(transparent, var(--background-color) 40%);
+  }
+  #o-mne .text-with-btn {
+    width: 100%;
+    text-align: start;
+  }
+  #television {
+    height: 80vh;
+  }
+  #television .img-container {
+    height: 100%;
+    width: 100%;
+  }
+  #television .img-container img {
+    transform: none;
+    height: 100%;
+    width: auto;
+  }
+  #television .img-container img:first-of-type {
+    scale: 1.3;
+  }
+  #ac-art .text {
+    width: 100%;
+  }
+  .text-center-btn {
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  #o-mne .text-container {
+    margin-top: 200px;
+  }
+}
+
+@media (max-width: 350px) {
+  #ac-art h2 {
+    font-size: 2.1rem;
+  }
 }
