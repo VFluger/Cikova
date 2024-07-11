@@ -73,24 +73,21 @@ let yearOffset = 1344; //fallback value just in case
 const yearObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      yearOffset = window.scrollY;
+      yearOffset = window.scrollY + 300;
       console.log(yearOffset);
     }
   });
 });
-
-yearObserver.observe(year);
+//observing element just before to escape bug when reloading page
+yearObserver.observe(document.querySelector(".publikace-container p"));
 
 function updateYear() {
-  let scrollPosition = window.scrollY - yearOffset;
-  let yearInt = parseInt(year.innerHTML, 10);
+  const scrollPosition = window.scrollY - yearOffset;
   newYear = 1962 + Math.floor(scrollPosition / 36);
   if (newYear < yearRanges[0].startYear) {
     document.querySelectorAll(".year-bio").forEach((element) => {
       element.style.opacity = "0";
     });
-    year.style.backgroundImage =
-      "linear-gradient(to bottom, var(--dark-white), var(--background-color))";
     newYear = 1962 + Math.floor(scrollPosition / 36);
     year.innerHTML = newYear;
     return;
@@ -105,8 +102,6 @@ function updateYear() {
         const yearSelector = document.getElementById(`year-bio${range.id}`);
         yearSelector.style.opacity = "1";
         yearSelector.style.transform = "scale(1)";
-        year.style.backgroundImage =
-          "linear-gradient(to bottom, var(--dark-white), var(--background-color))";
       } else {
         //if we want to go back to normal year scroll, we need to subtract the offset (index * (-4)) from the newYear
         newYear = 1962 + Math.floor(scrollPosition / 36) - 12 * range.id;
@@ -114,8 +109,6 @@ function updateYear() {
           element.style.opacity = "0";
           element.style.transform = "scale(0.5)";
         });
-        year.style.backgroundImage =
-          "linear-gradient(to bottom, var(--dark-text), var(--background-color))";
       }
     }
   }
