@@ -1,22 +1,22 @@
 [
   {
     "id": "I",
-    "fileName": "obraz-tajemstvi-tvari-1.jpg",
+    "fileName": "t1.jpg",
     "align": "vert"
   },
   {
     "id": "II",
-    "fileName": "obraz-tajemstvi-tvari-2.jpg",
+    "fileName": "t2.jpg",
     "align": "hori"
   },
   {
     "id": "III",
-    "fileName": "obraz-tajemstvi-tvari-3.jpg",
+    "fileName": "t3.jpg",
     "align": "vert"
   },
   {
     "id": "IV",
-    "fileName": "obraz-tajemstvi-tvari-4-full.jpg",
+    "fileName": "t4full.jpg",
     "align": "vert"
   }
 ]
