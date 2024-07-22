@@ -53,3 +53,9 @@ footer .cactus {
     font-weight: 800;
   }
 }
+
+@media (hover: none) {
+  footer .cactus {
+    color: var(--cactus-color);
+  }
+}

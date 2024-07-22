@@ -93,12 +93,15 @@ figure {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
 }
-
 section {
   width: 90%;
-  max-width: 2000px;
+  max-width: 1300px;
   padding: 0 20px;
   margin: 0 auto;
+}
+
+.divider {
+  max-width: 1300px;
 }
 
 #o-mne {
