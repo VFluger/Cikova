@@ -246,6 +246,7 @@ section {
   margin: 0 10px;
   transition: transform 300ms ease-in-out;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .fade-content {
@@ -282,6 +283,9 @@ section {
   .folder:hover {
     transform: scale(1.03);
   }
+  .modely-container:hover {
+    transform: scale(1.05);
+  }
 }
 
 .folder:hover::before {
@@ -304,7 +308,6 @@ section {
   width: 100%;
   z-index: 2;
   border-radius: inherit;
-  cursor: pointer;
   --webkit-tap-highlight-color: transparent;
 }
 
@@ -450,9 +453,11 @@ section {
   overflow: hidden;
   position: relative;
   border-radius: 16px;
+  transition: all 400ms var(--smooth-out-bezier);
   border: 2px solid rgba(255, 255, 255, 0.3);
-  &:active {
-    cursor: not-allowed;
+  &:hover {
+    cursor: pointer;
+    border: 3px solid rgba(255, 255, 255, 0.7);
   }
 }
 
@@ -864,4 +869,91 @@ section {
 
 .publikace-color {
   color: var(--publikace-color);
+}
+
+/*POPUP CSS FOR AC-ART*/
+.painting-div-container {
+  transition: filter 300ms var(--smooth-out-bezier);
+}
+
+.popup-bck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 998;
+  transition: opacity 1s var(--smooth-out-bezier),
+    visibility 1s var(--smooth-out-bezier);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.painting-popup {
+  position: fixed;
+  height: 95vh;
+  top: 50%;
+  left: 50%;
+  background-color: var(--background-color-lighter);
+  border-radius: 15px;
+  border: 2px solid var(--dark-text);
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 1s, visibility 1s;
+  transition-delay: 0.1s;
+  z-index: 999;
+  transition: all 500ms var(--smooth-out-bezier);
+}
+
+.painting-popup img {
+  height: 100%;
+  border-radius: inherit;
+  transition: all 500ms var(--smooth-out-bezier);
+}
+
+.painting-popup .arrow-left,
+.painting-popup .arrow-right {
+  width: 5vw;
+  max-width: 30px;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.painting-popup .arrow-right {
+  right: 0;
+  margin-right: 0.7vw;
+}
+
+.painting-popup .arrow-left {
+  left: 0;
+  margin-left: 0.7vw;
+}
+
+.arrow-left svg,
+.arrow-right svg {
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.close-popup {
+  width: 25px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
 }

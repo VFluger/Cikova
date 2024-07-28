@@ -220,7 +220,8 @@ nav h2 {
   .scroll-hidden {
     opacity: 0;
     filter: blur(2px);
-    transition: all 1s var(--smooth-out-bezier) 100ms;
+    transition: opacity 1s var(--smooth-out-bezier) 100ms,
+      filter 1s var(--smooth-out-bezier) 100ms;
   }
   .scroll-visible {
     opacity: 1;

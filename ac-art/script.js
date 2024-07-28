@@ -44,14 +44,6 @@ function HorizontalScroll() {
 const kabelkaDivs = document.querySelectorAll(".kabelka-div");
 const kabelkaContainer = document.querySelectorAll("#wallets-img-container");
 
-//Redirect for kabelky
-kabelkaDivs.forEach((kabelkaDiv) => {
-  kabelkaDiv.onclick = () => {
-    const imgInKabelka = kabelkaDiv.querySelector("img");
-    window.location.href = imgInKabelka.src;
-  };
-});
-
 //Changing height for divs to make gradients work properly
 const changeHeightKabelka = () => {
   kabelkaDivs.forEach((kabelkaDiv, index) => {
@@ -118,6 +110,20 @@ const changeImages = (idOfParent) => {
   }
 };
 
+const modely = document.querySelectorAll(".modely-container");
+modely.forEach((model) => {
+  model.addEventListener("click", () => {
+    const images = document.querySelectorAll(
+      `#${model.id} .modely-img-container`
+    );
+    images.forEach((image) => {
+      if (image.style.opacity === "1") {
+        quickOpenPopup(image.querySelector("img").src, "dress");
+      }
+    });
+  });
+});
+
 //changing the dress img
 changeImages("container-1");
 changeImages("container-2");
@@ -125,3 +131,149 @@ changeImages("container-3");
 changeImages("container-4");
 
 scrollAnimation();
+
+const imgPopup = (srcClass, idOfSectionToBlur) => {
+  const srcImgDivs = document.querySelectorAll(`.${srcClass}`); //open popup on click of these elements
+  const popup = document.querySelector(".painting-popup");
+  const closeBtn = document.querySelector(".close-popup");
+  const popupBackground = document.querySelector(".popup-bck");
+
+  const blurSection = document.querySelector(`#${idOfSectionToBlur}`);
+
+  const closePopup = () => {
+    popup.classList.remove("show");
+    blurSection.style.filter = "blur(0px)";
+    popupBackground.classList.remove("show");
+    body.style.overflow = "scroll";
+  };
+
+  const openPopup = () => {
+    popup.classList.add("show");
+    popupBackground.classList.add("show");
+    blurSection.style.filter = "blur(10px)";
+    body.style.overflow = "hidden";
+  };
+
+  const setPopupDimensions = (setBy) => {
+    if (setBy === "width") {
+      popup.style.width = "95vw";
+      popup.style.height = "auto";
+      popup.style.maxHeight = window.height - 100;
+      popup.querySelector("img").style.width = "100%";
+      popup.querySelector("img").style.height = "auto";
+      return;
+    }
+    if (setBy === "height") {
+      popup.style.height = "95vh";
+      popup.style.width = "auto";
+      popup.style.maxWidth = window.width - 100;
+      popup.querySelector("img").style.height = "100%";
+      popup.querySelector("img").style.width = "auto";
+      return;
+    }
+    console.error("Invalid setBy parameter. Expected 'width' or 'height'.");
+  };
+
+  const setPopupDimensionsAcordingToDevice = (popupImg) => {
+    const isVertical = Math.floor(popupImg.width / popupImg.height)
+      ? false
+      : true;
+    if (!isVertical) {
+      setPopupDimensions("height");
+      if (popupImg.width >= window.innerWidth) {
+        setPopupDimensions("width");
+      }
+    }
+    if (isVertical) {
+      setPopupDimensions("height");
+      if (popupImg.height >= window.innerHeight) {
+        setPopupDimensions("width");
+      }
+    }
+  };
+
+  const nextImgBtn = document.querySelector(".arrow-right");
+  const prevImgBtn = document.querySelector(".arrow-left");
+
+  //when image is clicked, open popup and change image
+  //check if first or last, disable btns
+  srcImgDivs.forEach((div) => {
+    div.addEventListener("click", () => {
+      const img = div.querySelector("img");
+      const popupImg = popup.querySelector("img");
+      popupImg.src = img.src;
+      //set the right dimensions
+      setPopupDimensionsAcordingToDevice(popupImg);
+      openPopup();
+    });
+  });
+  closeBtn.addEventListener("click", closePopup);
+
+  popupBackground.addEventListener("click", closePopup);
+};
+
+const quickOpenPopup = (srcOfImg, sectionToBlur) => {
+  const popup = document.querySelector(".painting-popup");
+  const closeBtn = document.querySelector(".close-popup");
+  const popupBackground = document.querySelector(".popup-bck");
+  const blurSection = document.querySelector(`#${sectionToBlur}`);
+
+  const openPopup = () => {
+    popup.classList.add("show");
+    popupBackground.classList.add("show");
+    blurSection.style.filter = "blur(10px)";
+    body.style.overflow = "hidden";
+  };
+
+  const setPopupDimensions = (setBy) => {
+    if (setBy === "width") {
+      popup.style.width = "95vw";
+      popup.style.height = "auto";
+      popup.style.maxHeight = window.height - 100;
+      popup.querySelector("img").style.width = "100%";
+      popup.querySelector("img").style.height = "auto";
+      return;
+    }
+    if (setBy === "height") {
+      popup.style.height = "95vh";
+      popup.style.width = "auto";
+      popup.style.maxWidth = window.width - 100;
+      popup.querySelector("img").style.height = "100%";
+      popup.querySelector("img").style.width = "auto";
+      return;
+    }
+    console.error("Invalid setBy parameter. Expected 'width' or 'height'.");
+  };
+
+  const setPopupDimensionsAcordingToDevice = (popupImg) => {
+    const isVertical = Math.floor(popupImg.width / popupImg.height)
+      ? false
+      : true;
+    if (!isVertical) {
+      setPopupDimensions("height");
+      if (popupImg.width >= window.innerWidth) {
+        setPopupDimensions("width");
+      }
+    }
+    if (isVertical) {
+      setPopupDimensions("height");
+      if (popupImg.height >= window.innerHeight) {
+        setPopupDimensions("width");
+      }
+    }
+  };
+  const popupImg = popup.querySelector("img");
+  popupImg.src = srcOfImg;
+  setPopupDimensionsAcordingToDevice(popupImg);
+  openPopup();
+  const closePopup = () => {
+    popup.classList.remove("show");
+    blurSection.style.filter = "blur(0px)";
+    popupBackground.classList.remove("show");
+    body.style.overflow = "scroll";
+  };
+  closeBtn.addEventListener("click", closePopup);
+  popupBackground.addEventListener("click", closePopup);
+};
+
+imgPopup("kabelka-div", "wallets");
