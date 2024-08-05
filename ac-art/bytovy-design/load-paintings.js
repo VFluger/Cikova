@@ -3,7 +3,7 @@ const showError = (error) => {
   paintingSection.innerHTML = `
   <div class="error-div">
   <img class="error-img" src='../../error.svg' alt="error img">
-  <h3 class="error-heading">Ups, fotografie se nepodařilo načíst. Zkuste to znovu, nebo nás kontaktujte.</h3>
+  <h3 class="error-heading">Fotografie se nepodařilo načíst. Zkuste to znovu, nebo nás kontaktujte.</h3>
   <code>${error}</code>
   </div>
   `;

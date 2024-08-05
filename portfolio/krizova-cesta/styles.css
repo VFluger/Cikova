@@ -1,22 +1,22 @@
 @keyframes letter-spacing {
   0% {
     letter-spacing: 1rem;
-    color: rgb(0, 255, 85);
+    color: rgb(84, 178, 255);
   }
   100% {
     letter-spacing: -0.151rem;
-    color: #41c200;
+    color: #2d74c5;
   }
 }
 
 @keyframes letter-spacing550 {
   0% {
     letter-spacing: 0.5rem;
-    color: rgb(0, 255, 85);
+    color: rgb(84, 178, 255);
   }
   100% {
     letter-spacing: -0.151rem;
-    color: #41c200;
+    color: #2d74c5;
   }
 }
 

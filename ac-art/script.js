@@ -132,28 +132,24 @@ changeImages("container-4");
 
 scrollAnimation();
 
-const imgPopup = (srcClass, idOfSectionToBlur) => {
-  const srcImgDivs = document.querySelectorAll(`.${srcClass}`); //open popup on click of these elements
-  const popup = document.querySelector(".painting-popup");
-  const closeBtn = document.querySelector(".close-popup");
-  const popupBackground = document.querySelector(".popup-bck");
+/////////////////////////////////////////////////////////////
+//side functions for popup funcs
 
-  const blurSection = document.querySelector(`#${idOfSectionToBlur}`);
+const closePopup = () => {
+  popup.classList.remove("show");
+  blurSection.style.filter = "blur(0px)";
+  popupBackground.classList.remove("show");
+  body.style.overflow = "scroll";
+};
 
-  const closePopup = () => {
-    popup.classList.remove("show");
-    blurSection.style.filter = "blur(0px)";
-    popupBackground.classList.remove("show");
-    body.style.overflow = "scroll";
-  };
+const openPopup = () => {
+  popup.classList.add("show");
+  popupBackground.classList.add("show");
+  blurSection.style.filter = "blur(10px)";
+  body.style.overflow = "hidden";
+};
 
-  const openPopup = () => {
-    popup.classList.add("show");
-    popupBackground.classList.add("show");
-    blurSection.style.filter = "blur(10px)";
-    body.style.overflow = "hidden";
-  };
-
+const setPopupDimensionsAcordingToDevice = (popupImg) => {
   const setPopupDimensions = (setBy) => {
     if (setBy === "width") {
       popup.style.width = "95vw";
@@ -171,26 +167,32 @@ const imgPopup = (srcClass, idOfSectionToBlur) => {
       popup.querySelector("img").style.width = "auto";
       return;
     }
-    console.error("Invalid setBy parameter. Expected 'width' or 'height'.");
   };
+  const isVertical = Math.floor(popupImg.width / popupImg.height)
+    ? false
+    : true;
+  if (!isVertical) {
+    setPopupDimensions("height");
+    if (popupImg.width >= window.innerWidth) {
+      setPopupDimensions("width");
+    }
+  }
+  if (isVertical) {
+    setPopupDimensions("height");
+    if (popupImg.height >= window.innerHeight) {
+      setPopupDimensions("width");
+    }
+  }
+};
+/////////////////////////////////////////////////////////////
 
-  const setPopupDimensionsAcordingToDevice = (popupImg) => {
-    const isVertical = Math.floor(popupImg.width / popupImg.height)
-      ? false
-      : true;
-    if (!isVertical) {
-      setPopupDimensions("height");
-      if (popupImg.width >= window.innerWidth) {
-        setPopupDimensions("width");
-      }
-    }
-    if (isVertical) {
-      setPopupDimensions("height");
-      if (popupImg.height >= window.innerHeight) {
-        setPopupDimensions("width");
-      }
-    }
-  };
+const imgPopup = (srcClass, idOfSectionToBlur) => {
+  const srcImgDivs = document.querySelectorAll(`.${srcClass}`); //open popup on click of these elements
+  const popup = document.querySelector(".painting-popup");
+  const closeBtn = document.querySelector(".close-popup");
+  const popupBackground = document.querySelector(".popup-bck");
+
+  const blurSection = document.querySelector(`#${idOfSectionToBlur}`);
 
   const nextImgBtn = document.querySelector(".arrow-right");
   const prevImgBtn = document.querySelector(".arrow-left");
@@ -218,60 +220,11 @@ const quickOpenPopup = (srcOfImg, sectionToBlur) => {
   const popupBackground = document.querySelector(".popup-bck");
   const blurSection = document.querySelector(`#${sectionToBlur}`);
 
-  const openPopup = () => {
-    popup.classList.add("show");
-    popupBackground.classList.add("show");
-    blurSection.style.filter = "blur(10px)";
-    body.style.overflow = "hidden";
-  };
-
-  const setPopupDimensions = (setBy) => {
-    if (setBy === "width") {
-      popup.style.width = "95vw";
-      popup.style.height = "auto";
-      popup.style.maxHeight = window.height - 100;
-      popup.querySelector("img").style.width = "100%";
-      popup.querySelector("img").style.height = "auto";
-      return;
-    }
-    if (setBy === "height") {
-      popup.style.height = "95vh";
-      popup.style.width = "auto";
-      popup.style.maxWidth = window.width - 100;
-      popup.querySelector("img").style.height = "100%";
-      popup.querySelector("img").style.width = "auto";
-      return;
-    }
-    console.error("Invalid setBy parameter. Expected 'width' or 'height'.");
-  };
-
-  const setPopupDimensionsAcordingToDevice = (popupImg) => {
-    const isVertical = Math.floor(popupImg.width / popupImg.height)
-      ? false
-      : true;
-    if (!isVertical) {
-      setPopupDimensions("height");
-      if (popupImg.width >= window.innerWidth) {
-        setPopupDimensions("width");
-      }
-    }
-    if (isVertical) {
-      setPopupDimensions("height");
-      if (popupImg.height >= window.innerHeight) {
-        setPopupDimensions("width");
-      }
-    }
-  };
   const popupImg = popup.querySelector("img");
   popupImg.src = srcOfImg;
   setPopupDimensionsAcordingToDevice(popupImg);
   openPopup();
-  const closePopup = () => {
-    popup.classList.remove("show");
-    blurSection.style.filter = "blur(0px)";
-    popupBackground.classList.remove("show");
-    body.style.overflow = "scroll";
-  };
+
   closeBtn.addEventListener("click", closePopup);
   popupBackground.addEventListener("click", closePopup);
 };

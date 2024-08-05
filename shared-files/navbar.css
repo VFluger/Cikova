@@ -203,7 +203,7 @@ nav h2 {
   font-size: 1.5em;
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 520px) {
   .navbar-ul,
   .navbar-ul > li {
     display: none;

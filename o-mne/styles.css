@@ -204,7 +204,7 @@ body {
   position: block;
   background: linear-gradient(
     to bottom,
-    var(--dark-text),
+    rgba(255, 255, 255, 0.5),
     var(--background-color)
   );
   -webkit-background-clip: text;
