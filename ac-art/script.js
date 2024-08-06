@@ -135,9 +135,15 @@ scrollAnimation();
 /////////////////////////////////////////////////////////////
 //side functions for popup funcs
 
+const popup = document.querySelector(".painting-popup");
+const blurSections = document.querySelectorAll(`.blur-section`);
+const popupBackground = document.querySelector(".popup-bck");
+
 const closePopup = () => {
   popup.classList.remove("show");
-  blurSection.style.filter = "blur(0px)";
+  blurSections.forEach((section) => {
+    section.style.filter = "blur(0px)";
+  });
   popupBackground.classList.remove("show");
   body.style.overflow = "scroll";
 };
@@ -145,7 +151,9 @@ const closePopup = () => {
 const openPopup = () => {
   popup.classList.add("show");
   popupBackground.classList.add("show");
-  blurSection.style.filter = "blur(10px)";
+  blurSections.forEach((section) => {
+    section.style.filter = "blur(10px)";
+  });
   body.style.overflow = "hidden";
 };
 
@@ -188,11 +196,7 @@ const setPopupDimensionsAcordingToDevice = (popupImg) => {
 
 const imgPopup = (srcClass, idOfSectionToBlur) => {
   const srcImgDivs = document.querySelectorAll(`.${srcClass}`); //open popup on click of these elements
-  const popup = document.querySelector(".painting-popup");
   const closeBtn = document.querySelector(".close-popup");
-  const popupBackground = document.querySelector(".popup-bck");
-
-  const blurSection = document.querySelector(`#${idOfSectionToBlur}`);
 
   const nextImgBtn = document.querySelector(".arrow-right");
   const prevImgBtn = document.querySelector(".arrow-left");
@@ -218,7 +222,6 @@ const quickOpenPopup = (srcOfImg, sectionToBlur) => {
   const popup = document.querySelector(".painting-popup");
   const closeBtn = document.querySelector(".close-popup");
   const popupBackground = document.querySelector(".popup-bck");
-  const blurSection = document.querySelector(`#${sectionToBlur}`);
 
   const popupImg = popup.querySelector("img");
   popupImg.src = srcOfImg;
