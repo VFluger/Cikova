@@ -201,6 +201,11 @@ section {
   }
 }
 
+#contact {
+  width: 100%;
+  height: 1000px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .o-mne-btn:hover {
     scale: 1.2;
