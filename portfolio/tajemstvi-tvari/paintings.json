@@ -1,22 +1,22 @@
 [
   {
     "id": "I",
-    "fileName": "t1.jpg",
+    "filename": "t1.jpg",
     "align": "vert"
   },
   {
     "id": "II",
-    "fileName": "t2.jpg",
+    "filename": "t2.jpg",
     "align": "hori"
   },
   {
     "id": "III",
-    "fileName": "t3.jpg",
+    "filename": "t3.jpg",
     "align": "vert"
   },
   {
     "id": "IV",
-    "fileName": "t4full.jpg",
+    "filename": "t4full.jpg",
     "align": "vert"
   }
 ]

@@ -23,7 +23,7 @@ const imgPopup = () => {
         .then((data) => {
           data.forEach((object) => {
             if (
-              object.fileName ===
+              object.filename ===
               decodeURIComponent(getFileNameFromPath(img.src))
             ) {
               const nextIndex = data.indexOf(object) + 1;
@@ -31,14 +31,14 @@ const imgPopup = () => {
               switch (direction) {
                 case "next":
                   if (nextIndex < data.length) {
-                    resolve(data[nextIndex].fileName);
+                    resolve(data[nextIndex].filename);
                   } else {
                     resolve();
                   }
                   break;
                 case "previous":
                   if (previousIndex >= 0) {
-                    resolve(data[previousIndex].fileName);
+                    resolve(data[previousIndex].filename);
                   } else {
                     resolve();
                   }

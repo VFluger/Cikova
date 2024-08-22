@@ -21,7 +21,7 @@ const loadPictures = (picturesArr) => {
     <p class="absolute pain-info"></p>
   </div>
     <img
-      src="../../media/ac-art/modni-doplnky/${picture.fileName}"
+      src="../../media/ac-art/modni-doplnky/${picture.filename}"
       alt="Modni doplnky - ac art"
       class="painting ${picture.align}-img"
       loading="lazy"
