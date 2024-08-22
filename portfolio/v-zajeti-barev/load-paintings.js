@@ -12,6 +12,11 @@ const showError = (error) => {
 const loadPictures = (picturesArr) => {
   const paintingSection = document.querySelector(".painting-div-container");
   paintingSection.innerHTML = picturesArr
+    .sort(
+      (a, b) =>
+        parseInt(b.heading.slice(b.heading.length - 4, b.heading.length)) -
+        parseInt(a.heading.slice(a.heading.length - 4, a.heading.length))
+    )
     .map(
       (picture) =>
         `
@@ -21,7 +26,7 @@ const loadPictures = (picturesArr) => {
     <p class="absolute pain-info">${picture.description}</p>
   </div>
     <img
-      src="../../media/obrazy/v-zajeti-barev/${picture.fileName}"
+      src="../../media/obrazy/v-zajeti-barev/${picture.filename}"
       alt="V zajeti barev - obraz"
       class="painting ${picture.align}-img"
       loading="lazy"

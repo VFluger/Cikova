@@ -21,7 +21,7 @@ const loadPictures = (picturesArr) => {
     <p class="absolute pain-info"></p>
   </div>
     <img
-      src="../../media/obrazy/tajemstvi-tvari/${picture.fileName}"
+      src="../../media/obrazy/tajemstvi-tvari/${picture.filename}"
       alt="Tajemství tváří ${picture.id} - obraz"
       class="painting"
       loading="lazy"

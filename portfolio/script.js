@@ -59,4 +59,3 @@ changeImages("f1");
 changeImages("f2");
 changeImages("f3");
 changeImages("f4");
-changeImages("f5");
