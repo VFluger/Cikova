@@ -1,54 +1,20 @@
 [
-  {
-    "filename": "A-18.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-22.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-25.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-32.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-35.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-38-627x1024.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-40-692x1024.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-48.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-51-728x1024.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-57.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-59-673x1024.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-63.jpg",
-    "align": "vert"
-  },
-  {
-    "filename": "A-65.jpg",
-    "align": "vert"
-  }
+  { "filename": "DSC_0076.JPG", "alt": "DSC_0076 - model", "align": "vert" },
+  { "filename": "DSC_0086.JPG", "alt": "DSC_0086 - model", "align": "vert" },
+  { "filename": "DSC_0100.JPG", "alt": "DSC_0100 - model", "align": "vert" },
+  { "filename": "DSC_0113.JPG", "alt": "DSC_0113 - model", "align": "vert" },
+  { "filename": "DSC_0121.JPG", "alt": "DSC_0121 - model", "align": "vert" },
+  { "filename": "DSC_0161.JPG", "alt": "DSC_0161 - model", "align": "vert" },
+  { "filename": "DSC_0176.JPG", "alt": "DSC_0176 - model", "align": "vert" },
+  { "filename": "DSC_0152.JPG", "alt": "DSC_0152 - model", "align": "vert" },
+  { "filename": "DSC_0180.JPG", "alt": "DSC_0180 - model", "align": "vert" },
+  { "filename": "DSC_0255.JPG", "alt": "DSC_0255 - model", "align": "vert" },
+  { "filename": "DSC_0289.JPG", "alt": "DSC_0289 - model", "align": "vert" },
+  { "filename": "DSC_0352.JPG", "alt": "DSC_0352 - model", "align": "vert" },
+  { "filename": "DSC_0343.JPG", "alt": "DSC_0343 - model", "align": "vert" },
+  { "filename": "DSC_0401.JPG", "alt": "DSC_0401 - model", "align": "vert" },
+  { "filename": "DSC_0414.JPG", "alt": "DSC_0414 - model", "align": "vert" },
+  { "filename": "DSC_0367.JPG", "alt": "DSC_0367 - model", "align": "vert" },
+  { "filename": "DSC_0420.JPG", "alt": "DSC_0420 - model", "align": "vert" },
+  { "filename": "DSC_0454.JPG", "alt": "DSC_0454 - model", "align": "vert" }
 ]

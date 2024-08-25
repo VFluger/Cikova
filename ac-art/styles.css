@@ -11,6 +11,10 @@ h1 {
   white-space: nowrap;
 }
 
+section {
+  width: 90%;
+}
+
 #f1:hover #heading-barvy {
   color: #ebd057;
 }
@@ -379,6 +383,7 @@ section {
   z-index: 0;
   min-width: inherit;
 }
+
 #wallets a {
   display: block;
   position: absolute;
@@ -387,6 +392,7 @@ section {
   text-decoration: none;
   color: var(--dark-white);
 }
+
 .kabelka-div {
   flex-shrink: 0;
   width: 30vw;
@@ -426,92 +432,25 @@ section {
   }
 }
 
-#dress {
-  width: 90%;
-}
-
-#dress p {
-  width: 90%;
-  margin: 20px auto;
-}
-
-.modely-parent-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: space-evenly;
-  flex-wrap: wrap;
-  gap: 2vw;
-  row-gap: 5vw;
-  margin-top: 60px;
-}
-
-.modely-container {
-  width: 20vw;
-  min-width: 300px;
-  aspect-ratio: 11/16;
-  overflow: hidden;
-  position: relative;
-  border-radius: 16px;
-  transition: all 400ms var(--smooth-out-bezier);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+.show-more {
+  text-align: center;
   &:hover {
     cursor: pointer;
-    border: 3px solid rgba(255, 255, 255, 0.7);
   }
 }
 
-.modely-img-container {
-  position: absolute;
-  transition: all 800ms;
-  z-index: -1;
-  width: fit-content;
+.show-more svg {
+  width: 100px;
+  position: relative;
+  top: -30px;
 }
 
-.model-img {
-  height: 100%;
-  width: 100%;
-  border-radius: inherit;
+#prehlidka-container {
+  mask: linear-gradient(rgb(0, 0, 0) 75%, transparent);
 }
 
-.modely-text-div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-    var(--background-color) -20%,
-    transparent 70%
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modely-text-div * {
-  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.5));
-  margin: 15px 0;
-  padding: 0;
-}
-
-.modely-container .text-container {
-  width: 100%;
-  aspect-ratio: inherit;
-}
-
-.modely-container .modely-img-container:last-of-type {
-  display: block;
-  opacity: 1;
-}
-
-.modely-container .height-locked,
-.modely-container .height-locked img {
-  width: auto;
-  height: 100%;
-}
-
-#publikace {
-  width: 90%;
+#prehlidka-container .painting-container:hover {
+  cursor: default;
 }
 
 .publikace-text {

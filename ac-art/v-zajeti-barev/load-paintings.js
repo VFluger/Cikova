@@ -22,7 +22,7 @@ const loadPictures = (picturesArr) => {
   </div>
     <img
       src="../../media/ac-art/v-zajeti-barev/${picture.filename}"
-      alt="V zajeti barev - ac art"
+      alt="${picture.alt}"
       class="painting ${picture.align}-img"
       loading="lazy"
       
