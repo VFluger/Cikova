@@ -15,13 +15,13 @@ const loadPictures = (picturesArr) => {
     .map(
       (picture) =>
         `
-<div class="painting-container ${picture.align} scroll-hidden">
+<div class="painting-container vert scroll-hidden">
   <div class="text-container">
     <h3 class="absolute pain-head">${picture.heading}</h3>
-    <p class="absolute pain-info">${picture.description}</p>
+    <p class="absolute pain-info"></p>
   </div>
     <img
-      src="../../media/obrazy/v-zajeti-barev/${picture.filename}"
+      src="../../media/obrazy/krizova-cesta/${picture.filename}"
       alt="${picture.heading} - obraz"
       class="painting"
       loading="lazy"
