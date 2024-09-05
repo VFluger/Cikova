@@ -13,14 +13,6 @@ const handleOnMouseMove = (e) => {
 for (const folder of document.querySelectorAll(".folder")) {
   folder.onmousemove = (e) => handleOnMouseMove(e);
 }
-///MAKE FOLDERS CLICKABLE///
-const f1 = document.querySelector("#f1");
-const f2 = document.querySelector("#f2");
-const f3 = document.querySelector("#f3");
-
-f1.onclick = () => (window.location.href = "./v-zajeti-barev/");
-f2.onclick = () => (window.location.href = "./bytovy-design/");
-f3.onclick = () => (window.location.href = "./modni-doplnky/");
 
 ///INFINITE HORIZONTAL SCROLL ///
 const scrollers = document.querySelectorAll(".scroller");
