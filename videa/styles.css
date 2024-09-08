@@ -64,9 +64,10 @@ h1 {
 }
 
 .yt-iframe {
-  width: 90%;
+  width: 90vw;
   aspect-ratio: 16/9;
   margin: 50px auto;
   display: block;
   border-radius: 1rem;
+  max-width: 1000px;
 }

@@ -204,7 +204,7 @@ section {
 #contact {
   color: #ffffffcc;
 }
-/*Changing the color of icons, little complicated*/
+
 #contact img {
   filter: opacity(0.8);
 }
@@ -543,7 +543,7 @@ div#television.animation-start .television-animation-el {
   font-size: 1.3rem;
 }
 
-#ac-art .text-container h4 {
+#ac-art .text-container span {
   margin: 0;
   font-weight: normal;
   font-size: 1.2rem;

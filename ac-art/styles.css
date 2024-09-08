@@ -439,7 +439,7 @@ section {
   }
 }
 
-.show-more svg {
+.show-more i {
   width: 100px;
   position: relative;
   top: -30px;
@@ -451,6 +451,11 @@ section {
 
 #prehlidka-container .painting-container:hover {
   cursor: default;
+}
+@media (max-width: 500px) {
+  #prehlidka .section-heading {
+    font-size: 10vw;
+  }
 }
 
 .publikace-text {

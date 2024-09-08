@@ -12,7 +12,6 @@ const showError = (error) => {
 const loadPictures = (picturesArr) => {
   const paintingSection = document.querySelector(".painting-div-container");
   paintingSection.innerHTML = picturesArr
-    .sort((a, b) => parseInt(b.description) - parseInt(a.description))
     .map(
       (picture) =>
         `
