@@ -305,7 +305,7 @@ body {
   }
 
   .slide1 {
-    background: url(../media/o-mne-mobile.webp);
+    background: url(/media/cikova-vystava-mobile.webp);
     background-repeat: repeat-y;
   }
 
@@ -320,7 +320,7 @@ body {
   }
 
   .slide2 {
-    background: url(../media/cikova-vystava-mobile.webp);
+    background: url(/media/o-mne-slide-2-mobile.jpg);
   }
   .img-gradient::before {
     content: "";

@@ -15,16 +15,22 @@ section {
   width: 90%;
 }
 
-#f1:hover #heading-barvy {
-  color: #ebd057;
+#f1:hover {
+  #heading-barvy {
+    color: #ebd057;
+  }
 }
 
-#f2:hover #heading-byt {
-  color: #4d8fc0;
+#f2:hover {
+  #heading-moda {
+    color: #d02f46;
+  }
 }
 
-#f3:hover #heading-moda {
-  color: #d02f46;
+#f3:hover {
+  #heading-byt {
+    color: #4d8fc0;
+  }
 }
 
 @keyframes letter-spacing {
@@ -207,13 +213,13 @@ section {
   color: var(--ac-art-color);
 }
 
-#kristina-caption {
+#marcela-caption {
   margin: 1vh 0;
   color: var(--ac-art-color);
   font-size: 1.2rem;
 }
 
-#kristina-fig {
+#marcela-fig {
   margin: 0;
   padding: 0;
   display: flex;
