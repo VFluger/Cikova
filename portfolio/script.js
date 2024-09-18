@@ -15,14 +15,6 @@ for (const folder of document.querySelectorAll(".folder")) {
   folder.onmousemove = (e) => handleOnMouseMove(e);
 }
 
-const f1 = document.querySelector("#f1");
-const f2 = document.querySelector("#f2");
-const f3 = document.querySelector("#f3");
-
-f1.onclick = () => (window.location.href = "./v-zajeti-barev/");
-f2.onclick = () => (window.location.href = "./v-zajeti-barev/");
-f3.onclick = () => (window.location.href = "./tajemstvi-tvari/");
-
 const container = document.querySelector(".folder-container");
 
 const changeImages = (idOfParent) => {

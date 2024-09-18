@@ -18,42 +18,46 @@
   { "filename": "DSC_0420.webp", "alt": "DSC_0420 - model", "align": "vert" },
   { "filename": "DSC_0454.webp", "alt": "DSC_0454 - model", "align": "vert" },
   {
-    "heading": "Andělské doteky, dlouhá sukně",
-    "filename": "andelske-doteky-dlouha-sukne.JPG"
+    "heading": "Zuzana Bubílková v AC.ARTfashion oblečení",
+    "filename": "DSC_0449.webp"
   },
-  { "heading": "Andělské doteky", "filename": "andelske-doteky.jpg" },
+  {
+    "heading": "Andělské doteky, dlouhá sukně",
+    "filename": "andelske-doteky-dlouha-sukne.WEBP"
+  },
+  { "heading": "Andělské doteky", "filename": "andelske-doteky.webp" },
   {
     "heading": "Díváš se do zrcadla, šaty krátké",
-    "filename": "divas-se-do-zrcadla-saty-kratke.JPG"
+    "filename": "divas-se-do-zrcadla-saty-kratke.WEBP"
   },
   {
     "heading": "Hvězdný prach, overal",
-    "filename": "hvezdny-prach-overal.JPG"
+    "filename": "hvezdny-prach-overal.WEBP"
   },
-  { "heading": "Hvězdný prach, šaty", "filename": "hvezdny-prach-saty.jpg" },
+  { "heading": "Hvězdný prach, šaty", "filename": "hvezdny-prach-saty.webp" },
   {
     "heading": "Malá mořská víla, šaty a šála",
-    "filename": "mala-morska-vila-saty-sala.JPG"
+    "filename": "mala-morska-vila-saty-sala.WEBP"
   },
   {
     "heading": "Měsíc a moře, kabát a top",
-    "filename": "mesic-a-more-kabat-top.jpg"
+    "filename": "mesic-a-more-kabat-top.webp"
   },
   {
     "heading": "Mořské mámení - dlouhé šaty",
-    "filename": "morske-mameni-dlouhe-saty.JPG"
+    "filename": "morske-mameni-dlouhe-saty.WEBP"
   },
   {
     "heading": "Motýlí vábení, kostímek",
-    "filename": "motyli-vabeni-kostimek-sukne-zlaty-top-kabatek.JPG"
+    "filename": "motyli-vabeni-kostimek-sukne-zlaty-top-kabatek.WEBP"
   },
-  { "heading": "Motýlí vábení, šaty", "filename": "motyli-vabeni-saty.jpg" },
+  { "heading": "Motýlí vábení, šaty", "filename": "motyli-vabeni-saty.webp" },
   {
     "heading": "Růžové mámení - dlouhé šaty a šála",
-    "filename": "ruzove-mameni-dlouhe-saty-sala.JPG"
+    "filename": "ruzove-mameni-dlouhe-saty-sala.WEBP"
   },
   {
     "heading": "Růžové mámení - overal a šála",
-    "filename": "ruzove-mameni-overal-sala.jpg"
+    "filename": "ruzove-mameni-overal-sala.webp"
   }
 ]

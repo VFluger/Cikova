@@ -47,7 +47,6 @@ fetch("./paintings.json")
     //delaying everything that takes the paintings as they're loaded with delay
     loadPictures(data);
     scrollAnimation();
-    imgPopup();
     changeWidthImgLoad();
 
     const showMorePaintings = () => {
