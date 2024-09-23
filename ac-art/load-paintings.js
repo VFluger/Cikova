@@ -9,33 +9,43 @@ const showError = (error) => {
     `;
 };
 
-const loadPictures = (picturesArr, showAll = false) => {
+const loadPictures = (prehlidkaArr) => {
   const paintingSection = document.querySelector(".painting-div-container");
-  paintingSection.innerHTML = picturesArr
-    .map((picture, index) => {
-      if (index >= 6 && !showAll) {
-        return;
+  prehlidkaHTML = prehlidkaArr
+    .map((prehlidka, index) => {
+      let desc = prehlidka.description;
+      if (prehlidka.description.length > 30) {
+        desc = prehlidka.description.slice(0, 30) + "...";
       }
+      const imgHref =
+        `/media/ac-art/prehlidky/${prehlidka.link}/` +
+        prehlidka.photos[prehlidka.indexOfPreview].filename;
       return `
-  <div class="painting-container ${picture.align} scroll-hidden">
-    <div class="text-container">
-      <h3 class="absolute pain-head"></h3>
-      <p class="absolute pain-info"></p>
-    </div>
-      <img
-        src="../../media/ac-art/prehlidka/${picture.filename}"
-        alt="${picture.alt}"
-        class="painting ${picture.align}-img"
-        loading="lazy"
-        
-      />
-  </div>
-  `;
+    <tr class="clickable-row" data-href="/ac-art/prehlidky/${prehlidka.link}">
+    
+      <th class='prehlidka-title'>${prehlidka.title}</th>
+      <td class='prehlidka-year'>${prehlidka.year}</td>
+      <td class='prehlidka-description'>${desc}</td>
+    </tr>
+    `;
     })
     .join("");
+  //<td class='prehlidka-preview'><img class="prehlidka-img" src="${imgHref}" alt="${prehlidka.title} - nahled"></td>
+  $(document).ready(() => {
+    $(".clickable-row").click(function () {
+      window.location.href = $(this).data("href");
+    });
+  });
+  paintingSection.innerHTML = `
+    <table>
+    <tbody>
+    ${prehlidkaHTML}
+    </tbody>
+    </table>
+    `;
 };
 
-fetch("./paintings.json")
+fetch("./prehlidky.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("JSON " + response.statusText);
@@ -48,19 +58,24 @@ fetch("./paintings.json")
     loadPictures(data);
     scrollAnimation();
     changeWidthImgLoad();
-
-    const showMorePaintings = () => {
-      loadPictures(data, true);
-      scrollAnimation();
-      document.querySelector("#prehlidka-container").style.mask = "none";
-      showMoreBtn.style.display = "none";
-    };
-
-    const showMoreBtn = document.querySelector(".show-more");
-
-    showMoreBtn.addEventListener("click", showMorePaintings);
   })
   .catch((error) => {
     console.error("Error fetching the JSON file:", error);
     showError(error);
   });
+
+/*`
+  <div class="painting-container ${picture.align} scroll-hidden">
+  <div class="text-container">
+    <h3 class="absolute pain-head"></h3>
+    <p class="absolute pain-info"></p>
+  </div>
+    <img
+      src="../../media/ac-art/prehlidka/${picture.filename}"
+      alt="${picture.alt}"
+      class="painting ${picture.align}-img"
+      loading="lazy"
+      
+    />
+</div>
+`*/
