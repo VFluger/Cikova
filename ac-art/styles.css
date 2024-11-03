@@ -842,8 +842,26 @@ section {
   background-color: rgba(0, 0, 0, 0.3);
   margin: 10px 0;
   border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: all 300ms var(--smooth-out-bezier);
   td,
   th {
     padding: 20px 0;
   }
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}
+
+.prehlidka-title {
+  font-weight: bold;
+}
+
+.prehlidka-description,
+.prehlidka-year {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prehlidka-description {
+  width: 21.5%;
 }

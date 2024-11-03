@@ -23,7 +23,7 @@ const loadPictures = (prehlidkaArr) => {
       return `
     <tr class="clickable-row" data-href="/ac-art/prehlidky/${prehlidka.link}">
     
-      <th class='prehlidka-title'>${prehlidka.title}</th>
+      <td class='prehlidka-title'>${prehlidka.title}</td>
       <td class='prehlidka-year'>${prehlidka.year}</td>
       <td class='prehlidka-description'>${desc}</td>
     </tr>
