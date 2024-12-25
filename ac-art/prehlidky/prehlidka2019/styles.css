@@ -1,0 +1,40 @@
+h1 {
+  color: #4d8fc0;
+}
+
+@keyframes letter-spacing {
+  0% {
+    letter-spacing: 0.5rem;
+    color: rgb(0, 102, 255);
+  }
+  100% {
+    letter-spacing: -0.151rem;
+    color: #4d8fc0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: letter-spacing 1s cubic-bezier(0.2, 0.8, 0.3, 0.95) forwards;
+  }
+  .desc {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.1s;
+  }
+  h2 {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.5s;
+  }
+  .divider {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.6s;
+  }
+  .painting-div-container {
+    opacity: 0;
+    animation: opacity 1s var(--smooth-out-bezier) forwards;
+    animation-delay: 0.8s;
+  }
+}

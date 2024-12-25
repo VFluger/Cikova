@@ -10,7 +10,7 @@ const showError = (error) => {
 };
 
 const loadPictures = (prehlidkaArr) => {
-  const paintingSection = document.querySelector(".painting-div-container");
+  const paintingSection = document.querySelector("#prehlidka-container");
   prehlidkaHTML = prehlidkaArr
     .map((prehlidka, index) => {
       let desc = prehlidka.description;
@@ -21,27 +21,24 @@ const loadPictures = (prehlidkaArr) => {
         `/media/ac-art/prehlidky/${prehlidka.link}/` +
         prehlidka.photos[prehlidka.indexOfPreview].filename;
       return `
-    <tr class="clickable-row" data-href="/ac-art/prehlidky/${prehlidka.link}">
-    
-      <td class='prehlidka-title'>${prehlidka.title}</td>
-      <td class='prehlidka-year'>${prehlidka.year}</td>
-      <td class='prehlidka-description'>${desc}</td>
-    </tr>
+    <div class="prehlidka" data-href="/ac-art/prehlidky/${prehlidka.link}">
+    <h2 class="prehlidka-heading">${prehlidka.title}</h2>
+    <p class="prehlidka-year">${prehlidka.year}</p>
+    <img src="${imgHref}" alt="prehlidka thumbnail" class="prehlidka-thm">
+  </div>
     `;
     })
     .join("");
-  //<td class='prehlidka-preview'><img class="prehlidka-img" src="${imgHref}" alt="${prehlidka.title} - nahled"></td>
+  //prehlidka click fn, redirect to dedicated page
   $(document).ready(() => {
-    $(".clickable-row").click(function () {
+    $(".prehlidka").click(function () {
       window.location.href = $(this).data("href");
     });
   });
   paintingSection.innerHTML = `
-    <table>
-    <tbody>
+    <div class="prehlidky-container">
     ${prehlidkaHTML}
-    </tbody>
-    </table>
+    </div>
     `;
 };
 

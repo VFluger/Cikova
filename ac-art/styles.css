@@ -377,13 +377,6 @@ section {
   top: -30px;
 }
 
-#prehlidka-container {
-  mask: linear-gradient(rgb(0, 0, 0) 75%, transparent);
-}
-
-#prehlidka-container .painting-container:hover {
-  cursor: default;
-}
 @media (max-width: 500px) {
   #prehlidka .section-heading {
     font-size: 10vw;
@@ -853,15 +846,51 @@ section {
   }
 }
 
-.prehlidka-title {
-  font-weight: bold;
+.prehlidky-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2%;
 }
 
-.prehlidka-description,
+.prehlidka {
+  width: 20%;
+  color: white;
+  aspect-ratio: 10/16;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  transition: all 200ms;
+  position: relative;
+  &:hover {
+    /* scale: 1.02; */
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    img {
+      scale: 1.05;
+    }
+  }
+}
+.prehlidka-thm {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: scale 200ms var(--smooth-out-bezier);
+}
+
+.prehlidka-heading,
 .prehlidka-year {
-  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+.prehlidka-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
-.prehlidka-description {
-  width: 21.5%;
+.prehlidka-year {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }
