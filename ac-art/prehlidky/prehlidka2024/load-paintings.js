@@ -11,6 +11,7 @@ const showError = (error) => {
 
 const loadPictures = (picturesArr) => {
   const paintingSection = document.querySelector(".painting-div-container");
+  document.querySelector("h1").textContent = picturesArr[0].title;
   paintingSection.innerHTML = picturesArr[0].photos
     .map(
       (picture) =>
@@ -23,7 +24,7 @@ const loadPictures = (picturesArr) => {
     <p class="absolute pain-info"></p>
   </div>
     <img
-      src="/media/ac-art/prehlidky/prehlidka1/${picture.filename}"
+      src="/media/ac-art/prehlidky/${picturesArr[0].link}/${picture.filename}"
       alt="prehlidka foto - ac art"
       class="painting ${picture.align}-img"
       loading="lazy"
