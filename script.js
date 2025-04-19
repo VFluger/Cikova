@@ -81,7 +81,7 @@ acImgContent.forEach((container) => {
     }
   });
 });
-
+/*
 const publikaceImgContent = document.querySelectorAll(
   "#publikace .img-container"
 );
@@ -100,4 +100,4 @@ publikaceImgContent.forEach((container) => {
         break;
     }
   });
-});
+});*/

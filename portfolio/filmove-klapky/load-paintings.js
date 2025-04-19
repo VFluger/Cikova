@@ -42,7 +42,6 @@ fetch("./paintings.json")
     return response.json();
   })
   .then((data) => {
-    //delaying everything that takes the paintings as they're loaded with delay
     loadPictures(data);
     scrollAnimation();
     imgPopup();

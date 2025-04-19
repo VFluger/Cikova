@@ -10,6 +10,7 @@ const showError = (error) => {
 };
 
 const loadPictures = (picturesArr) => {
+  document.querySelector(".desc").textContent = picturesArr[1].description;
   const paintingSection = document.querySelector(".painting-div-container");
   document.querySelector("h1").textContent = picturesArr[1].title;
   paintingSection.innerHTML = picturesArr[1].photos
@@ -45,7 +46,6 @@ fetch("/ac-art/prehlidky.json")
     return response.json();
   })
   .then((data) => {
-    //delaying everything that takes the paintings as they're loaded with delay
     loadPictures(data);
     scrollAnimation();
     imgPopup();

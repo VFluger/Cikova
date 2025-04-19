@@ -656,6 +656,10 @@ div#television.animation-start .television-animation-el {
   font-size: 1.2rem;
 }
 
+.ac-art-tile {
+  color: white;
+}
+
 #publikace #invence img {
   scale: 1.15;
 }
