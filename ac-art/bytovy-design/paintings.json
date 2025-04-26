@@ -1,26 +1,56 @@
 [
+  { "heading": "Andělské doteky", "filename": "Andělské doteky.jpg" },
+  { "heading": "", "filename": "DSC_0443.webp" },
   {
-    "fileName": "DSC_0302.jpg",
-    "align": "vert"
-  },
-  {
-    "fileName": "DSC_0304.jpg",
-    "align": "vert"
-  },
-  {
-    "fileName": "DSC_0349.jpg",
+    "heading": "Dotek slunce",
+    "filename": "Dotek slunce 13.webp",
     "align": "hori"
   },
   {
-    "fileName": "DSC_0356.jpg",
-    "align": "vert"
-  },
-  {
-    "fileName": "DSC_0366.jpg",
+    "heading": "",
+    "filename": "IMG-20200927-WA0001.jpg",
     "align": "hori"
   },
   {
-    "fileName": "DSC_0369.jpg",
+    "heading": "",
+    "filename": "IMG_20210915_110627.webp"
+  },
+  {
+    "heading": "",
+    "filename": "IMG_20210915_110709.webp",
+    "align": "hori"
+  },
+  {
+    "heading": "",
+    "filename": "IMG_20210915_111123.webp"
+  },
+  {
+    "heading": "",
+    "filename": "IMG_20230320_085841.webp",
+    "align": "hori"
+  },
+  {
+    "filename": "DSC_0302.jpg",
+    "align": "vert"
+  },
+  {
+    "filename": "DSC_0304.jpg",
+    "align": "vert"
+  },
+  {
+    "filename": "DSC_0349.jpg",
+    "align": "hori"
+  },
+  {
+    "filename": "DSC_0356.jpg",
+    "align": "vert"
+  },
+  {
+    "filename": "DSC_0366.jpg",
+    "align": "hori"
+  },
+  {
+    "filename": "DSC_0369.jpg",
     "align": "hori"
   }
 ]

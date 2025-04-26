@@ -21,6 +21,7 @@ footer {
   justify-content: center;
 }
 
+.footer-container div img,
 .footer-container div svg {
   height: 20px;
   padding-right: 15px;

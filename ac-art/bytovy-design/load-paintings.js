@@ -15,13 +15,15 @@ const loadPictures = (picturesArr) => {
     .map(
       (picture) =>
         `
-<div class="painting-container ${picture.align} scroll-hidden">
+<div class="painting-container ${
+          picture.align ? picture.align : "vert"
+        } scroll-hidden">
   <div class="text-container">
     <h3 class="absolute pain-head"></h3>
     <p class="absolute pain-info"></p>
   </div>
     <img
-      src="../../media/ac-art/bytovy-design/${picture.fileName}"
+      src="../../media/ac-art/bytovy-design/${picture.filename}"
       alt="Bytovy design - ac art"
       class="painting ${picture.align}-img"
       loading="lazy"
@@ -42,7 +44,6 @@ fetch("./paintings.json")
     return response.json();
   })
   .then((data) => {
-    //delaying everything that takes the paintings as they're loaded with delay
     loadPictures(data);
     scrollAnimation();
     imgPopup();
