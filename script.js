@@ -76,12 +76,12 @@ acImgContent.forEach((container) => {
         window.location.href = "./ac-art/modni-doplnky";
         break;
       case "barvy":
-        window.location.href = "./ac-art/v-zajeti-barev";
+        window.location.href = "./ac-art/modely";
         break;
     }
   });
 });
-
+/*
 const publikaceImgContent = document.querySelectorAll(
   "#publikace .img-container"
 );
@@ -100,4 +100,4 @@ publikaceImgContent.forEach((container) => {
         break;
     }
   });
-});
+});*/

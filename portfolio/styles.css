@@ -68,7 +68,7 @@ h1 {
   text-align: center;
 }
 
-.portfolio-blue {
+.portfolio-blue.portfolio-blue {
   color: var(--portfolio-color);
 }
 

@@ -15,6 +15,10 @@ h1 {
   text-align: center;
 }
 
+.quote {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 figure {
   padding: 0;
   margin: 0;
@@ -165,7 +169,7 @@ section {
 }
 
 .text-with-btn {
-  width: 80%;
+  width: 81%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,6 +202,81 @@ section {
     color: var(--o-mne-color);
     font-weight: bold;
     border: 3px solid var(--o-mne-color);
+  }
+}
+
+#contact {
+  color: #ffffffcc;
+}
+
+#contact img {
+  filter: opacity(0.8);
+}
+
+#contact .icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+#contact .text-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+#contact .text-icons div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffffcc;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+#contact .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#contact img {
+  width: 25px;
+}
+
+#contact svg {
+  width: 25px;
+}
+
+#contact .facebook-f-icon {
+  width: 16px;
+}
+
+#contact .youtube-icon {
+  width: 28px;
+}
+
+@media (max-width: 650px) {
+  #contact .icons-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 470px) {
+  #contact .text-icons {
+    flex-direction: column;
+    gap: 20px;
+  }
+  #contact .icons-container {
+    gap: 30px;
   }
 }
 
@@ -468,7 +547,7 @@ div#television.animation-start .television-animation-el {
   font-size: 1.3rem;
 }
 
-#ac-art .text-container h4 {
+#ac-art .text-container span {
   margin: 0;
   font-weight: normal;
   font-size: 1.2rem;
@@ -577,6 +656,10 @@ div#television.animation-start .television-animation-el {
   font-size: 1.2rem;
 }
 
+.ac-art-tile {
+  color: white;
+}
+
 #publikace #invence img {
   scale: 1.15;
 }
@@ -611,7 +694,7 @@ div#television.animation-start .television-animation-el {
     border-radius: 1rem;
   }
   #o-mne .text-container {
-    margin-top: 500px;
+    margin-top: 200px;
   }
   #o-mne .text-with-btn {
     margin: 0 auto;
@@ -621,7 +704,7 @@ div#television.animation-start .television-animation-el {
     top: 0;
     left: 0;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.5 !important;
   }
   .o-mne-btn {
     margin: 20px 0;

@@ -15,13 +15,13 @@ const loadPictures = (picturesArr) => {
     .map(
       (picture) =>
         `
-<div class="painting-container ${picture.align} scroll-hidden">
+<div class="painting-container hori scroll-hidden">
   <div class="text-container">
     <h3 class="absolute pain-head">${picture.heading}</h3>
     <p class="absolute pain-info">${picture.description}</p>
   </div>
     <img
-      src="../../media/obrazy/v-zajeti-barev/${picture.fileName}"
+      src="../../media/obrazy/filmove-klapky/${picture.filename}"
       alt="${picture.heading} - obraz"
       class="painting"
       loading="lazy"
@@ -36,13 +36,12 @@ const loadPictures = (picturesArr) => {
 fetch("./paintings.json")
   .then((response) => {
     if (!response.ok) {
-      throw new Error("JSON " + response.statusText);
+      console.error("JSON " + response.statusText);
       showError(response.statusText);
     }
     return response.json();
   })
   .then((data) => {
-    //delaying everything that takes the paintings as they're loaded with delay
     loadPictures(data);
     scrollAnimation();
     imgPopup();
