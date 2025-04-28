@@ -54,13 +54,20 @@ try {
 
 const year = document.querySelector(".year");
 
-let newYear = 1962;
+let newYear = 2002;
 let yearRanges = [
-  { startYear: 1962, id: 1 },
-  { startYear: 1976, id: 2 },
-  { startYear: 1977, id: 3 },
-  { startYear: 1989, id: 4 },
-  { startYear: 1998, id: 5 },
+  { startYear: 2002, id: 1 },
+  { startYear: 2011, id: 2 },
+  { startYear: 2012, id: 3 },
+  { startYear: 2013, id: 4 },
+  { startYear: 2014, id: 5 },
+  { startYear: 2016, id: 6 },
+  { startYear: 2017, id: 7 },
+  { startYear: 2018, id: 8 },
+  { startYear: 2019, id: 9 },
+  { startYear: 2020, id: 10 },
+  { startYear: 2022, id: 11 },
+  { startYear: 2023, id: 12 },
 ];
 const main = document.querySelector("main");
 
@@ -104,7 +111,7 @@ function updateYear() {
         yearSelector.style.transform = "scale(1)";
       } else {
         //if we want to go back to normal year scroll, we need to subtract the offset (index * (-4)) from the newYear
-        newYear = 1962 + Math.floor(scrollPosition / 36) - 12 * range.id;
+        newYear = 1962 + Math.floor(scrollPosition / 36) - 5 * range.id;
         document.querySelectorAll(".year-bio").forEach((element) => {
           element.style.opacity = "0";
           element.style.transform = "scale(0.5)";
