@@ -171,3 +171,9 @@ const changingImages = () => {
     changeImages(img.id);
   });
 };
+
+changingImages();
+
+changeImages("f1");
+changeImages("f2");
+changeImages("f3");
