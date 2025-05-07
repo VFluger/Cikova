@@ -1,22 +1,112 @@
 [
-  { "filename": "DSC_0076.webp", "alt": "DSC_0076 - model", "align": "vert" },
-  { "filename": "DSC_0086.webp", "alt": "DSC_0086 - model", "align": "vert" },
-  { "filename": "DSC_0100.webp", "alt": "DSC_0100 - model", "align": "vert" },
-  { "filename": "DSC_0113.webp", "alt": "DSC_0113 - model", "align": "vert" },
-  { "filename": "DSC_0121.webp", "alt": "DSC_0121 - model", "align": "vert" },
-  { "filename": "DSC_0161.webp", "alt": "DSC_0161 - model", "align": "vert" },
-  { "filename": "DSC_0176.webp", "alt": "DSC_0176 - model", "align": "vert" },
-  { "filename": "DSC_0152.webp", "alt": "DSC_0152 - model", "align": "vert" },
-  { "filename": "DSC_0180.webp", "alt": "DSC_0180 - model", "align": "vert" },
-  { "filename": "DSC_0255.webp", "alt": "DSC_0255 - model", "align": "vert" },
-  { "filename": "DSC_0289.webp", "alt": "DSC_0289 - model", "align": "vert" },
-  { "filename": "DSC_0352.webp", "alt": "DSC_0352 - model", "align": "vert" },
-  { "filename": "DSC_0343.webp", "alt": "DSC_0343 - model", "align": "vert" },
-  { "filename": "DSC_0401.webp", "alt": "DSC_0401 - model", "align": "vert" },
-  { "filename": "DSC_0414.webp", "alt": "DSC_0414 - model", "align": "vert" },
-  { "filename": "DSC_0367.webp", "alt": "DSC_0367 - model", "align": "vert" },
-  { "filename": "DSC_0420.webp", "alt": "DSC_0420 - model", "align": "vert" },
-  { "filename": "DSC_0454.webp", "alt": "DSC_0454 - model", "align": "vert" },
+  {
+    "filename": "DSC_0076.webp",
+    "alt": "DSC_0076 - model",
+    "align": "vert",
+    "heading": "Zrození Anděla II., šaty"
+  },
+  {
+    "filename": "DSC_0086.webp",
+    "alt": "DSC_0086 - model",
+    "align": "vert",
+    "heading": "Která je která, sukně"
+  },
+  {
+    "filename": "DSC_0100.webp",
+    "alt": "DSC_0100 - model",
+    "align": "vert",
+    "heading": "V srdci Andělských křídel, kalhoty"
+  },
+  {
+    "filename": "DSC_0113.webp",
+    "alt": "DSC_0113 - model",
+    "align": "vert",
+    "heading": "Mořské snění, dlouhé šaty"
+  },
+  {
+    "filename": "DSC_0121.webp",
+    "alt": "DSC_0121 - model",
+    "align": "vert",
+    "heading": "Mořské snění, overal"
+  },
+  {
+    "filename": "DSC_0161.webp",
+    "alt": "DSC_0161 - model",
+    "align": "vert",
+    "heading": "Námořníkův sen, overal"
+  },
+  {
+    "filename": "DSC_0176.webp",
+    "alt": "DSC_0176 - model",
+    "align": "vert",
+    "heading": "Duše staré lípy, overal"
+  },
+  {
+    "filename": "DSC_0152.webp",
+    "alt": "DSC_0152 - model",
+    "align": "vert",
+    "heading": "Námořníkův sen, šaty"
+  },
+  {
+    "filename": "DSC_0180.webp",
+    "alt": "DSC_0180 - model",
+    "align": "vert",
+    "heading": "Duše staré lípy, overal"
+  },
+  {
+    "filename": "DSC_0255.webp",
+    "alt": "DSC_0255 - model",
+    "align": "vert",
+    "heading": "Anděl v tvé hlavě, sukně"
+  },
+  {
+    "filename": "DSC_0289.webp",
+    "alt": "DSC_0289 - model",
+    "align": "vert",
+    "heading": "Hra na schovávanou, šaty"
+  },
+  {
+    "filename": "DSC_0352.webp",
+    "alt": "DSC_0352 - model",
+    "align": "vert",
+    "heading": "Harlekýnka, šaty"
+  },
+  {
+    "filename": "DSC_0343.webp",
+    "alt": "DSC_0343 - model",
+    "align": "vert",
+    "heading": "Anděl a magická křídla, šaty"
+  },
+  {
+    "filename": "DSC_0401.webp",
+    "alt": "DSC_0401 - model",
+    "align": "vert",
+    "heading": "Když víly tančí, šaty"
+  },
+  {
+    "filename": "DSC_0414.webp",
+    "alt": "DSC_0414 - model",
+    "align": "vert",
+    "heading": "Podzimní romance, šaty"
+  },
+  {
+    "filename": "DSC_0367.webp",
+    "alt": "DSC_0367 - model",
+    "align": "vert",
+    "heading": "V srdci Andělských křídel, šaty"
+  },
+  {
+    "filename": "DSC_0420.webp",
+    "alt": "DSC_0420 - model",
+    "align": "vert",
+    "heading": "Zrození Anděla, šaty"
+  },
+  {
+    "filename": "DSC_0454.webp",
+    "alt": "DSC_0454 - model",
+    "align": "vert",
+    "heading": "Slza Anděla, dlouhé šaty"
+  },
   {
     "heading": "Zuzana Bubílková v AC.ARTfashion oblečení",
     "filename": "DSC_0449.webp"
@@ -25,7 +115,10 @@
     "heading": "Andělské doteky, dlouhá sukně",
     "filename": "andelske-doteky-dlouha-sukne.webp"
   },
-  { "heading": "Andělské doteky", "filename": "andelske-doteky.webp" },
+  {
+    "heading": "Andělské doteky",
+    "filename": "andelske-doteky.webp"
+  },
   {
     "heading": "Díváš se do zrcadla, šaty krátké",
     "filename": "divas-se-do-zrcadla-saty-kratke.webp"
@@ -34,7 +127,10 @@
     "heading": "Hvězdný prach, overal",
     "filename": "hvezdny-prach-overal.webp"
   },
-  { "heading": "Hvězdný prach, šaty", "filename": "hvezdny-prach-saty.webp" },
+  {
+    "heading": "Hvězdný prach, šaty",
+    "filename": "hvezdny-prach-saty.webp"
+  },
   {
     "heading": "Malá mořská víla, šaty a šála",
     "filename": "mala-morska-vila-saty-sala.webp"
@@ -51,7 +147,10 @@
     "heading": "Motýlí vábení, kostímek",
     "filename": "motyli-vabeni-kostimek-sukne-zlaty-top-kabatek.webp"
   },
-  { "heading": "Motýlí vábení, šaty", "filename": "motyli-vabeni-saty.webp" },
+  {
+    "heading": "Motýlí vábení, šaty",
+    "filename": "motyli-vabeni-saty.webp"
+  },
   {
     "heading": "Růžové mámení - dlouhé šaty a šála",
     "filename": "ruzove-mameni-dlouhe-saty-sala.webp"
