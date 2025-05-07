@@ -131,3 +131,20 @@ window.addEventListener("resize", () => {
   YearOffset = main.offsetHeight / 3.68;
   updateYear();
 });
+
+document.querySelector(".dropdown-text-btn").addEventListener("click", () => {
+  const text = document.querySelector(".dropdown-text");
+  const icon = document.querySelector(".dropdown-icon");
+  //hide dropdown
+  if (text.classList.contains("dropdown-visible")) {
+    text.classList.remove("dropdown-visible");
+    icon.classList.remove("dropdown-icon-open");
+    void text.offsetWidth; // triggers reflow
+    text.classList.add("dropdown-off");
+    return;
+  }
+  text.classList.remove("dropdown-off");
+  icon.classList.add("dropdown-icon-open");
+  void text.offsetWidth; // triggers reflow
+  text.classList.add("dropdown-visible");
+});

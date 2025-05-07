@@ -276,6 +276,10 @@ body {
   .fade-img {
     visibility: hidden;
   }
+  .dropdown-text-btn {
+    text-align: center;
+    display: block;
+  }
   .name {
     text-align: center;
     letter-spacing: normal;
@@ -317,6 +321,7 @@ body {
     display: flex;
     flex-direction: row;
     margin-bottom: 30%;
+    overflow: hidden;
   }
 
   .slide2 {
@@ -331,7 +336,7 @@ body {
   }
 
   .slide2::before {
-    background: linear-gradient(transparent 20%, var(--background-color) 100%);
+    background: linear-gradient(transparent -20%, var(--background-color) 100%);
   }
 
   .img-gradient * {
@@ -483,5 +488,85 @@ body {
 @media (orientation: landscape) {
   .year {
     font-size: 45vh;
+  }
+}
+
+.dropdown-text-btn {
+  font-size: 2rem;
+  padding-left: 10%;
+  cursor: pointer;
+  font-size: 1.6rem;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 1040px) {
+  .dropdown-text-btn {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 770px) {
+  .dropdown-text.dropdown-text {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .img-gradient {
+    height: 1000px;
+    &::before {
+      height: 1000px;
+      background: linear-gradient(
+        transparent -100%,
+        var(--background-color) 100%
+      );
+    }
+  }
+}
+
+.dropdown-text {
+  font-size: 1.1rem !important;
+  color: var(--dark-white) !important;
+  height: 0px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.dropdown-visible {
+  display: block;
+  height: 100%;
+  margin: auto;
+  animation: dropdown-displaying 1s;
+}
+
+.dropdown-off {
+  height: 0px;
+  margin: 0px;
+  animation: dropdown-displaying 1s;
+  animation-direction: reverse;
+}
+
+.dropdown-icon {
+  rotate: -90deg;
+  transition: all 1s;
+  padding-bottom: 5px;
+  padding-left: 2px;
+}
+
+.dropdown-icon.dropdown-icon-open {
+  rotate: 0deg;
+  margin-right: 10px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+@keyframes dropdown-displaying {
+  0% {
+    height: 1px;
+  }
+  100% {
+    height: 460px;
   }
 }
