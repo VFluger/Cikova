@@ -70,11 +70,11 @@ h1 {
 }
 
 .disabled-button:hover {
-  cursor: not-allowed;
-  transform: scale(1.1);
-  border: 2px solid #d64545;
-  color: #d64545;
-  font-weight: bold;
+  cursor: not-allowed !important;
+  transform: scale(1.1) !important;
+  border: 2px solid #d64545 !important;
+  color: #d64545 !important;
+  font-weight: bold !important;
 }
 
 .book-container {
