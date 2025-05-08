@@ -41,11 +41,11 @@ footer {
   margin-top: 5px !important;
 }
 
-footer .author {
+.author {
   margin-top: 10px;
 }
 
-footer .cactus {
+.cactus {
   text-decoration: none;
   color: white;
   transition: all 300ms var(--smooth-out-bezier);
@@ -56,7 +56,7 @@ footer .cactus {
 }
 
 @media (hover: none) {
-  footer .cactus {
+  .cactus {
     color: var(--cactus-color);
   }
 }

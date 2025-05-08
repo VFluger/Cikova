@@ -82,6 +82,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.navbar-ul li:nth-of-type(6) a:hover,
+.menu-ul li:nth-of-type(6) a:hover,
+.menu-ul li:nth-of-type(6) a:active {
+  color: var(--kontakt-color);
+  -webkit-tap-highlight-color: transparent;
+}
+
 .menu {
   width: 28px;
   display: none;
@@ -199,6 +206,10 @@
 
 .menu-ul > *:nth-child(5) {
   transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 200ms;
+}
+
+.menu-ul > *:nth-child(6) {
+  transition: all 200ms cubic-bezier(0.55, -0.02, 0, 0.97) 250ms;
 }
 
 .menu-overlay h2 {
