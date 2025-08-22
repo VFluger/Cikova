@@ -174,6 +174,6 @@ const changingImages = () => {
 
 changingImages();
 
-changeImages("f1");
-changeImages("f2");
-changeImages("f3");
+for (let i = 1; i < 5; i++) {
+  changeImages(`f${i}`);
+}
