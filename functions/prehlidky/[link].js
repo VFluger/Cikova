@@ -38,21 +38,18 @@ const loadPictures = (picturesArr) => {
 
 const getPrehlidka = async (link) => {
   const query =
-    encodeURIComponent(`*[_type == "prehlidka" && link == ${link}][0]{
+    encodeURIComponent(`*[_type == "prehlidka" && link.current == "${link}"][0]{
     title,
     year,
     description,
     link,
-    IndexOfPreview,
+    indexOfPreview,
     photos[]{
       title,
       description,
       "url": image.asset->url,
     }
   }`);
-
-  // Pass the param via URL
-  console.log(link);
 
   const url = `https://${projectId}.api.sanity.io/v2025-08-01/data/query/${dataset}?query=${query}`;
 
@@ -70,13 +67,12 @@ export async function onRequest(context) {
     if (!data) {
       isError = true;
       //Show error in html
+    } else {
+      const { title, year, description, IndexOfPreview, photos } = data;
     }
-    console.log(data);
-
-    const { title, year, description, IndexOfPreview, photos } = data;
 
     //HTML parsed with dynamic properties
-    const html = `
+    let html = `
     <!DOCTYPE html>
 <html lang="cs">
   <head>
@@ -366,9 +362,14 @@ export async function onRequest(context) {
   </body>
 </html>
     `;
-  });
-
-  return new Response(html, {
-    headers: { "content-type": "text/html;charset=UTF-8" },
+    return new Response(html, {
+      headers: { "content-type": "text/html;charset=UTF-8" },
+    });
   });
 }
+
+const context = {
+  params: {
+    link: "kd-kromeriz",
+  },
+};

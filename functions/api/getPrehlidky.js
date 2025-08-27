@@ -22,5 +22,5 @@ export async function onRequest(context) {
 
   console.log(data.result);
 
-  return new Response(data.result);
+  return new Response(JSON.stringify(data.result));
 }
