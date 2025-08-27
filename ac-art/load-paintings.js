@@ -24,7 +24,7 @@ const loadPictures = (prehlidkaArr) => {
 
       const imgHref = prehlidka.photos[prehlidka.indexOfPreview].url;
       return `
-    <div class="prehlidka" data-href="/ac-art/prehlidky/${prehlidka.link}">
+    <div class="prehlidka" data-href="/ac-art/prehlidky/${prehlidka.link.current}">
     <h2 class="prehlidka-heading">${prehlidka.title}</h2>
     <p class="prehlidka-year">${prehlidka.year}</p>
     <img src="${imgHref}" alt="prehlidka thumbnail" class="prehlidka-thm">

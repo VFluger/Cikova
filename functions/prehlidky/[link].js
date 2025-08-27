@@ -11,7 +11,7 @@ const showError = (error) => {
 const projectId = "djr0842l";
 const dataset = "production";
 
-const loadPictures = (link, picturesArr) => {
+const loadPictures = (picturesArr) => {
   return picturesArr
     .map(
       (picture) =>
@@ -22,7 +22,7 @@ const loadPictures = (link, picturesArr) => {
     <p class="absolute pain-info">${picture.description}</p>
   </div>
     <img
-      src="/${link}/${picture.filename}"
+      src="${picture.url}"
       alt="prehlidka foto - ac art"
       class="painting vert-img"
       loading="lazy"
@@ -200,7 +200,7 @@ export async function onRequest(context) {
         <div class="divider"></div>
       </section>
       <section class="painting-div-container">
-        ${loadPictures(link, photos)}
+        ${loadPictures(photos)}
       </section>
       <div class="painting-popup">
         <img src="" alt="Fullscreen fotka" />
