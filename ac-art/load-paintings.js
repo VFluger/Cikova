@@ -18,11 +18,11 @@ const loadPictures = (prehlidkaArr) => {
         desc = prehlidka.description.slice(0, 30) + "...";
       }
 
-      console.log(prehlidka.photos);
+      console.log(prehlidka);
 
-      console.log("PREVIEW:::", prehlidka.photos[prehlidkaArr.indexOfPreview]);
+      console.log("PREVIEW:::", prehlidka.photos[prehlidka.indexOfPreview]);
 
-      const imgHref = prehlidka.photos[prehlidkaArr.indexOfPreview].url;
+      const imgHref = prehlidka.photos[prehlidka.indexOfPreview].url;
       return `
     <div class="prehlidka" data-href="/ac-art/prehlidky/${prehlidka.link}">
     <h2 class="prehlidka-heading">${prehlidka.title}</h2>

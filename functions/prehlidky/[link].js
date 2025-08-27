@@ -200,7 +200,7 @@ export async function onRequest(context) {
         <div class="divider"></div>
       </section>
       <section class="painting-div-container">
-        ${loadPictures(photos)}
+        ${loadPictures(link, photos)}
       </section>
       <div class="painting-popup">
         <img src="" alt="Fullscreen fotka" />
