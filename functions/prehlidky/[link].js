@@ -61,15 +61,14 @@ const getPrehlidka = async (link) => {
 export async function onRequest(context) {
   const { link } = context.params;
 
+  console.log(link);
+
   let isError = false;
 
   getPrehlidka(link).then((data) => {
-    if (!data) {
-      isError = true;
-      //Show error in html
-    } else {
-      const { title, year, description, IndexOfPreview, photos } = data;
-    }
+    console.log(data);
+
+    const { title, year, description, photos } = data;
 
     //HTML parsed with dynamic properties
     let html = `
@@ -197,13 +196,13 @@ export async function onRequest(context) {
     </nav>
     <main>
       <section>
-        <h1>${title}</h1>
+        <h1>${title} - ${year}</h1>
         <p class="desc">${description}</p>
         <h2>GALERIE</h2>
         <div class="divider"></div>
       </section>
       <section class="painting-div-container">
-        ${isError ? showError() : loadPictures(photos)}
+        ${loadPictures(photos)}
       </section>
       <div class="painting-popup">
         <img src="" alt="Fullscreen fotka" />
@@ -367,9 +366,3 @@ export async function onRequest(context) {
     });
   });
 }
-
-const context = {
-  params: {
-    link: "kd-kromeriz",
-  },
-};
