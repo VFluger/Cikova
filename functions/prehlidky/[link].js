@@ -355,7 +355,11 @@ export async function onRequest(context) {
     <script src="/shared-files/navbar.js"></script>
     <script src="/shared-files/painting-popup.js"></script>
     <script src="script.js"></script>
-    <script src="load-paintings.js"></script>
+    <script>
+      scrollAnimation();
+      imgPopup();
+      changeWidthImgLoad();
+    </script>
   </body>
 </html>
     `;
