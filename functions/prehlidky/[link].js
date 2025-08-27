@@ -65,13 +65,13 @@ export async function onRequest(context) {
 
   let isError = false;
 
-  getPrehlidka(link).then((data) => {
-    console.log(data);
+  const data = await getPrehlidka(link);
+  console.log(data);
 
-    const { title, year, description, photos } = data;
+  const { title, year, description, photos } = data;
 
-    //HTML parsed with dynamic properties
-    let html = `
+  //HTML parsed with dynamic properties
+  let html = `
     <!DOCTYPE html>
 <html lang="cs">
   <head>
@@ -361,8 +361,7 @@ export async function onRequest(context) {
   </body>
 </html>
     `;
-    return new Response(html, {
-      headers: { "content-type": "text/html;charset=UTF-8" },
-    });
+  return new Response(html, {
+    headers: { "content-type": "text/html;charset=UTF-8" },
   });
 }

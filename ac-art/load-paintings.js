@@ -17,7 +17,7 @@ const loadPictures = (prehlidkaArr) => {
       if (prehlidka.description.length > 30) {
         desc = prehlidka.description.slice(0, 30) + "...";
       }
-      const imgHref = prehlidka.photos[prehlidka.indexOfPreview].url;
+      const imgHref = prehlidka.photos[prehlidkaArr.indexOfPreview].url;
       return `
     <div class="prehlidka" data-href="/ac-art/prehlidky/${prehlidka.link}">
     <h2 class="prehlidka-heading">${prehlidka.title}</h2>

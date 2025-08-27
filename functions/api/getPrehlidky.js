@@ -7,7 +7,7 @@ export async function onRequest(context) {
     year,
     description,
     link,
-    IndexOfPreview,
+    indexOfPreview,
     photos[]{
       title,
       description,
@@ -19,8 +19,6 @@ export async function onRequest(context) {
 
   const res = await fetch(url);
   const data = await res.json();
-
-  console.log(data.result);
 
   return new Response(JSON.stringify(data.result));
 }
