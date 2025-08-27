@@ -11,22 +11,20 @@ const showError = (error) => {
 const projectId = "djr0842l";
 const dataset = "production";
 
-const loadPictures = (picturesArr) => {
+const loadPictures = (link, picturesArr) => {
   return picturesArr
     .map(
       (picture) =>
         `
-<div class="painting-container ${
-          picture.align ? picture.align : "vert"
-        } scroll-hidden">
+<div class="painting-container vert scroll-hidden">
   <div class="text-container">
-    <h3 class="absolute pain-head"></h3>
-    <p class="absolute pain-info"></p>
+    <h3 class="absolute pain-head">${picture.title}</h3>
+    <p class="absolute pain-info">${picture.description}</p>
   </div>
     <img
-      src="/media/ac-art/prehlidky/${picturesArr[2].link}/${picture.filename}"
+      src="/${link}/${picture.filename}"
       alt="prehlidka foto - ac art"
-      class="painting ${picture.align}-img"
+      class="painting vert-img"
       loading="lazy"
       
     />
