@@ -9,87 +9,81 @@ const showError = (error) => {
   `;
 };
 
+const projectId = "djr0842l";
+const dataset = "production";
+
 const loadPictures = (picturesArr) => {
   const paintingSection = document.querySelector(".painting-div-container");
   paintingSection.innerHTML = picturesArr
-    .map((picture, index) => {
-      if (Array.isArray(picture)) {
-        const htmlImages = picture.map((image, imgIndex) => {
-          if (imgIndex === picture.length - 1) {
-            return `
-        <img
-        src="/media/ac-art/modni-doplnky/${image.filename}"
-        alt="Modni doplnky - ac art"
-        class="painting ${image.align}-img"
-        loading="lazy"
-        />
-        <img
-        src="/media/ac-art/modni-doplnky/${image.filename}"
-        alt="Modni doplnky - ac art"
-        class="painting ${image.align}-img"
-        loading="lazy"
-        />
-        `;
-          }
-          return `
-        <img
-        src="/media/ac-art/modni-doplnky/${image.filename}"
-        alt="Modni doplnky - ac art"
-        class="painting ${image.align}-img"
-        loading="lazy"
-        />
-        `;
-        });
-        return `
-          <div class="painting-container ${
-            picture[0].align
-          } scroll-hidden animate-img" id="change-img-${index}" ${
-          index === 2 ? 'style="aspect-ratio: 12/16"' : ""
-        }>
-  <div class="text-container">
-    <h3 class="absolute pain-head">${picture[0].heading}</h3>
-    <p class="absolute pain-info">${picture[0].description}</p>
-  </div>
-    ${htmlImages}
-</div>
-          `;
-      }
+    .map((item, index) => {
+      if (!item.photos || !item.photos.length) return "";
+
+      const htmlImages = item.photos
+        .map(
+          (slide) => `<img
+            src="${slide.url}"
+            alt="${item.title || ""}"
+            class="painting vert-img"
+            loading="lazy"
+          />`
+        )
+        .join("");
+
       return `
-<div class="painting-container ${picture.align} scroll-hidden">
-  <div class="text-container">
-    <h3 class="absolute pain-head"></h3>
-    <p class="absolute pain-info"></p>
-  </div>
-    <img
-      src="/media/ac-art/modni-doplnky/${picture.filename}"
-      alt="Modni doplnky - ac art"
-      class="painting ${picture.align}-img"
-      loading="lazy"
-      
-    />
-</div>
-`;
+        <div class="painting-container vert scroll-hidden animate-img" id="change-img-${index}" ${
+        index === 2 ? 'style="aspect-ratio: 12/16"' : ""
+      }>
+          <div class="text-container">
+            <h3 class="absolute pain-head">${item.title || ""}</h3>
+            <p class="absolute pain-info">${item.description || ""}</p>
+          </div>
+          ${htmlImages}
+        </div>
+      `;
     })
     .join("");
 };
 
-fetch("./paintings.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("JSON " + response.statusText);
-      showError(response.statusText);
+async function getCollectionByName(name) {
+  const query =
+    encodeURIComponent(`*[_type == "collectionMoreImg" && title == "${name}"][0]{
+    title,
+    description,
+    images[]{
+      title,
+      description,
+      photos[] {
+        "url": asset->url
+      }
     }
-    return response.json();
-  })
-  .then((data) => {
-    //calling funcs after loading the imgs
-    loadPictures(data);
+  }`);
+
+  // Pass the param via URL
+  console.log(name);
+  const params = encodeURIComponent(JSON.stringify({ name }));
+  const url = `https://${projectId}.api.sanity.io/v2025-08-01/data/query/${dataset}?query=${query}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.result; // will be a single object instead of an array
+}
+
+const setCollectionName = (col) => {
+  document.querySelector("h1").innerText = col.title;
+  document.querySelector(".desc").innerText = col.description;
+};
+
+getCollectionByName("Modní doplňky")
+  .then((col) => {
+    console.log(col);
+    setCollectionName(col);
+    loadPictures(col.images);
     scrollAnimation();
     imgPopup();
     changeWidthImgLoad();
     changingImages();
   })
-  .catch((error) => {
-    console.error("Error fetching the JSON file:", error);
-    showError(error);
+  .catch((err) => {
+    console.error(err);
+    showError(err);
   });

@@ -1,19 +1,98 @@
-<!DOCTYPE html>
+const showError = (error) => {
+  return `
+  <div class="error-div">
+  <img class="error-img" src='../../error.svg' alt="error img">
+  <h3 class="error-heading">Fotografie se nepodařilo načíst. Zkuste to znovu, nebo nás kontaktujte.</h3>
+  <code>${error}</code>
+  </div>
+  `;
+};
+
+const projectId = "djr0842l";
+const dataset = "production";
+
+const loadPictures = (picturesArr) => {
+  return picturesArr
+    .map(
+      (picture) =>
+        `
+<div class="painting-container ${
+          picture.align ? picture.align : "vert"
+        } scroll-hidden">
+  <div class="text-container">
+    <h3 class="absolute pain-head"></h3>
+    <p class="absolute pain-info"></p>
+  </div>
+    <img
+      src="/media/ac-art/prehlidky/${picturesArr[2].link}/${picture.filename}"
+      alt="prehlidka foto - ac art"
+      class="painting ${picture.align}-img"
+      loading="lazy"
+      
+    />
+</div>
+`
+    )
+    .join("");
+};
+
+const getPrehlidka = async (link) => {
+  const query =
+    encodeURIComponent(`*[_type == "prehlidka" && link == ${link}][0]{
+    title,
+    year,
+    description,
+    link,
+    IndexOfPreview,
+    photos[]{
+      title,
+      description,
+      "url": image.asset->url,
+    }
+  }`);
+
+  // Pass the param via URL
+  console.log(link);
+
+  const url = `https://${projectId}.api.sanity.io/v2025-08-01/data/query/${dataset}?query=${query}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  return data.result;
+};
+
+export async function onRequest(context) {
+  const { link } = context.params;
+
+  let isError = false;
+
+  getPrehlidka(link).then((data) => {
+    if (!data) {
+      isError = true;
+      //Show error in html
+    }
+    console.log(data);
+
+    const { title, year, description, IndexOfPreview, photos } = data;
+
+    //HTML parsed with dynamic properties
+    const html = `
+    <!DOCTYPE html>
 <html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../shared-files/root-body.css" />
+    <link rel="stylesheet" href="/shared-files/root-body.css" />
     <script
       src="https://kit.fontawesome.com/9dc89b769e.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../../shared-files/navbar.css" />
-    <link rel="stylesheet" href="../../shared-files/footer.css" />
-    <link rel="stylesheet" href="../../shared-files/scrollbar.css" />
-    <link rel="stylesheet" href="../../shared-files/painting.css" />
+    <link rel="stylesheet" href="/shared-files/navbar.css" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="../../shared-files/painting-popup.css" />
+    <link rel="stylesheet" href="/shared-files/footer.css" />
+    <link rel="stylesheet" href="/shared-files/scrollbar.css" />
+    <link rel="stylesheet" href="/shared-files/painting.css" />
+    <link rel="stylesheet" href="/shared-files/painting-popup.css" />
 
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -23,19 +102,19 @@
     <meta name="msapplication-TileColor" content="#b91d47" />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Modely - AC.ART - Cikova ART</title>
+    <title>Přehlídka 1 - Cikova ART</title>
   </head>
   <body>
     <nav class="navbar">
-      <a href="../../" id="home-link">
-        <img alt="logo" id="logo" src="../../media/logo.png" />
+      <a href="/" id="home-link">
+        <img alt="logo" id="logo" src="/media/logo.png" />
       </a>
       <div class="navbar-div">
         <ul class="navbar-ul">
-          <li><a href="../../o-mne">O mně</a></li>
-          <li><a href="../../portfolio">Portfolio</a></li>
-          <li><a href="../../ac-art">AC.ARTfashion</a></li>
-          <li><a href="../../publikace">Publikace</a></li>
+          <li><a href="/o-mne">O mně</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/ac-art">AC.ARTfashion</a></li>
+          <li><a href="/publikace">Publikace</a></li>
           <li><a href="/videa">Videa</a></li>
           <li><a href="/kontakt">Kontakt</a></li>
         </ul>
@@ -46,6 +125,7 @@
           viewBox="0 0 448 512"
           class="menu-svg"
         >
+          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
           <path
             fill="#ffffff"
             d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
@@ -59,6 +139,7 @@
             viewBox="0 0 384 512"
             class="menu-x"
           >
+            <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
             <path
               fill="#ffffff"
               d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
@@ -68,10 +149,10 @@
         </div>
         <div class="navbar-soc">
           <ul class="menu-ul">
-            <li><a href="../../o-mne">O mně</a></li>
-            <li><a href="../../portfolio">Portfolio</a></li>
-            <li><a href="../../ac-art">AC.ARTfashion</a></li>
-            <li><a href="../../publikace">Publikace</a></li>
+            <li><a href="/o-mne">O mně</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/ac-art">AC.ARTfashion</a></li>
+            <li><a href="/publikace">Publikace</a></li>
             <li><a href="/videa">Videa</a></li>
             <li><a href="/kontakt">Kontakt</a></li>
           </ul>
@@ -82,6 +163,7 @@
               class="menu-link"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
                 <path
                   fill="#1066ff"
                   d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"
@@ -94,6 +176,7 @@
               class="menu-link"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
                 <path
                   fill="#ff0000"
                   d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"
@@ -118,18 +201,13 @@
     </nav>
     <main>
       <section>
-        <h1></h1>
-        <p class="desc"></p>
+        <h1>${title}</h1>
+        <p class="desc">${description}</p>
         <h2>GALERIE</h2>
         <div class="divider"></div>
       </section>
       <section class="painting-div-container">
-        <div class="loading-div">
-          <img class="loading-gif" src="../../loading.gif" alt="loading-gif" />
-          <h2 class="loading-heading">
-            Počkejte prosím, něž se fotografie načtou.
-          </h2>
-        </div>
+        ${isError ? showError() : loadPictures(photos)}
       </section>
       <div class="painting-popup">
         <img src="" alt="Fullscreen fotka" />
@@ -163,10 +241,16 @@
       <div class="popup-bck"></div>
     </main>
     <footer>
-      <div class="footer-container scroll-hidden">
+      <div class="footer-container">
         <address>
           <div>
-            <img src="/svg/map.svg" alt="Ikona mapy" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
+              <path
+                fill="#ffffff"
+                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+              />
+            </svg>
             <span>
               <a
                 href="https://maps.app.goo.gl/RCeeizD6uJQbojqdA"
@@ -177,7 +261,13 @@
             </span>
           </div>
           <div>
-            <img src="/svg/phone.svg" alt="ikona telefonu" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
+              <path
+                fill="#ffffff"
+                d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+              />
+            </svg>
             <span>
               <a class="footer-link" href="tel:+420608243344">
                 +420 608 243 344
@@ -185,7 +275,13 @@
             </span>
           </div>
           <div>
-            <img src="/svg/mail.svg" alt="Ikona emailu" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
+              <path
+                fill="#ffffff"
+                d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"
+              />
+            </svg>
             <span>
               <a class="footer-link" href="mailto:a.cikova@email.com">
                 a.cikova@email.cz
@@ -201,6 +297,7 @@
             id="facebook"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
               <path
                 class="soc-link-path"
                 id="soc-link-path-facebook"
@@ -216,6 +313,7 @@
             id="youtube"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
               <path
                 id="soc-link-path-youtube"
                 class="soc-link-path"
@@ -226,15 +324,17 @@
           </a>
           <a
             target="_blank"
-            href="https://www.instagram.com/acartfashion/"
+            href="https://www.linkedin.com/pub/alena-cikov%C3%A1/63/806/bb2"
             class="soc-link"
-            id="instagram"
+            id="linkedin"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, nc.-->
               <path
+                id="soc-link-path-linkedin"
+                class="soc-link-path"
                 fill="#ffffff"
-                id="soc-link-path-instagram"
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"
               />
             </svg>
           </a>
@@ -257,11 +357,18 @@
         </span>
       </div>
     </footer>
-    <script src="../../shared-files/footer.js"></script>
-    <script src="../../shared-files/painting.js"></script>
-    <script src="../../shared-files/navbar.js"></script>
-    <script src="../../shared-files/painting-popup.js"></script>
+    <script src="/shared-files/footer.js"></script>
+    <script src="/shared-files/painting.js"></script>
+    <script src="/shared-files/navbar.js"></script>
+    <script src="/shared-files/painting-popup.js"></script>
     <script src="script.js"></script>
-    <script src="./load-paintings.js"></script>
+    <script src="load-paintings.js"></script>
   </body>
 </html>
+    `;
+  });
+
+  return new Response(html, {
+    headers: { "content-type": "text/html;charset=UTF-8" },
+  });
+}

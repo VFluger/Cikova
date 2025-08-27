@@ -42,11 +42,11 @@ const loadPictures = (prehlidkaArr) => {
     `;
 };
 
-fetch("./prehlidky.json")
+fetch("/api/getPrehlidky")
   .then((response) => {
     if (!response.ok) {
-      throw new Error("JSON " + response.statusText);
       showError(response.statusText);
+      throw new Error("JSON " + response.statusText);
     }
     return response.json();
   })
@@ -59,19 +59,3 @@ fetch("./prehlidky.json")
     console.error("Error fetching the JSON file:", error);
     showError(error);
   });
-
-/*`
-  <div class="painting-container ${picture.align} scroll-hidden">
-  <div class="text-container">
-    <h3 class="absolute pain-head"></h3>
-    <p class="absolute pain-info"></p>
-  </div>
-    <img
-      src="../../media/ac-art/prehlidka/${picture.filename}"
-      alt="${picture.alt}"
-      class="painting ${picture.align}-img"
-      loading="lazy"
-      
-    />
-</div>
-`*/
