@@ -1,5 +1,5 @@
 const showError = (error) => {
-  const paintingSection = document.querySelector(".painting-div-container");
+  const paintingSection = document.querySelector("#prehlidka-container");
   paintingSection.innerHTML = `
     <div class="error-div">
     <img class="error-img" src='../../error.svg' alt="error img">
@@ -20,9 +20,12 @@ const loadPictures = (prehlidkaArr) => {
 
       console.log(prehlidka);
 
-      console.log("PREVIEW:::", prehlidka.photos[prehlidka.indexOfPreview]);
+      console.log(
+        "PREVIEW:::",
+        prehlidka.photos[prehlidka.indexOfPreview || 0]
+      );
 
-      const imgHref = prehlidka.photos[prehlidka.indexOfPreview].url;
+      const imgHref = prehlidka.photos[prehlidka.indexOfPreview || 0].url;
       return `
     <div class="prehlidka" data-href="/prehlidky/${prehlidka.link.current}">
     <h2 class="prehlidka-heading">${prehlidka.title}</h2>
