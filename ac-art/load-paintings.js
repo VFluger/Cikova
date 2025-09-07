@@ -1,5 +1,5 @@
 const showError = (error) => {
-  const paintingSection = document.querySelector(".painting-div-container");
+  const paintingSection = document.querySelector("#prehlidka-container");
   paintingSection.innerHTML = `
     <div class="error-div">
     <img class="error-img" src='../../error.svg' alt="error img">
@@ -17,11 +17,17 @@ const loadPictures = (prehlidkaArr) => {
       if (prehlidka.description.length > 30) {
         desc = prehlidka.description.slice(0, 30) + "...";
       }
-      const imgHref =
-        `/media/ac-art/prehlidky/${prehlidka.link}/` +
-        prehlidka.photos[prehlidka.indexOfPreview].filename;
+
+      console.log(prehlidka);
+
+      console.log(
+        "PREVIEW:::",
+        prehlidka.photos[prehlidka.indexOfPreview || 0]
+      );
+
+      const imgHref = prehlidka.photos[prehlidka.indexOfPreview || 0].url;
       return `
-    <div class="prehlidka" data-href="/ac-art/prehlidky/${prehlidka.link}">
+    <div class="prehlidka" data-href="/prehlidky/${prehlidka.link.current}">
     <h2 class="prehlidka-heading">${prehlidka.title}</h2>
     <p class="prehlidka-year">${prehlidka.year}</p>
     <img src="${imgHref}" alt="prehlidka thumbnail" class="prehlidka-thm">
@@ -42,11 +48,11 @@ const loadPictures = (prehlidkaArr) => {
     `;
 };
 
-fetch("./prehlidky.json")
+fetch("/api/getPrehlidky")
   .then((response) => {
     if (!response.ok) {
-      throw new Error("JSON " + response.statusText);
       showError(response.statusText);
+      throw new Error("JSON " + response.statusText);
     }
     return response.json();
   })
@@ -59,19 +65,3 @@ fetch("./prehlidky.json")
     console.error("Error fetching the JSON file:", error);
     showError(error);
   });
-
-/*`
-  <div class="painting-container ${picture.align} scroll-hidden">
-  <div class="text-container">
-    <h3 class="absolute pain-head"></h3>
-    <p class="absolute pain-info"></p>
-  </div>
-    <img
-      src="../../media/ac-art/prehlidka/${picture.filename}"
-      alt="${picture.alt}"
-      class="painting ${picture.align}-img"
-      loading="lazy"
-      
-    />
-</div>
-`*/
