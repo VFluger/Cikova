@@ -21,7 +21,7 @@ const loadPictures = (picturesArr) => {
       const htmlImages = item.photos
         .map(
           (slide) => `<img
-            src="${slide.url}"
+            src="${slide.url}?fm=webp&q=70"
             alt="${item.title || ""}"
             class="painting vert-img"
             loading="lazy"
@@ -75,7 +75,6 @@ const setCollectionName = (col) => {
 
 getCollectionByName("Modní doplňky")
   .then((col) => {
-    console.log(col);
     setCollectionName(col);
     loadPictures(col.images);
     scrollAnimation();

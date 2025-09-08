@@ -2,7 +2,7 @@ const showError = (error) => {
   const paintingSection = document.querySelector(".painting-div-container");
   paintingSection.innerHTML = `
   <div class="error-div">
-  <img class="error-img" src='../../error.svg' alt="error img">
+  <img class="error-img" src=/error.svg' alt="error img">
   <h3 class="error-heading">Fotografie se nepodařilo načíst. Zkuste to znovu, nebo nás kontaktujte.</h3>
   <code>${error}</code>
   </div>
@@ -51,7 +51,7 @@ const importImgs = (col) => {
             }</p>
           </div>
             <img
-              src="${imgObj.url}"
+              src="${imgObj.url}?fm=webp&q=70"
               alt="${col.title} - img${i} - ac art"
               class="painting vert-img"
               loading="lazy"

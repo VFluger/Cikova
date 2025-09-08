@@ -22,7 +22,7 @@ const loadPictures = (picturesArr) => {
     <p class="absolute pain-info">${picture.description}</p>
   </div>
     <img
-      src="${picture.url}"
+      src="${picture.url}?fm=webp&q=70"
       alt="prehlidka foto - ac art"
       class="painting vert-img"
       loading="lazy"

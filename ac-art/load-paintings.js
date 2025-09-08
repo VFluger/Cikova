@@ -2,7 +2,7 @@ const showError = (error) => {
   const paintingSection = document.querySelector("#prehlidka-container");
   paintingSection.innerHTML = `
     <div class="error-div">
-    <img class="error-img" src='../../error.svg' alt="error img">
+    <img class="error-img" src='/error.svg' alt="error img">
     <h3 class="error-heading">Fotografie se nepodařilo načíst. Zkuste to znovu, nebo nás kontaktujte.</h3>
     <code>${error}</code>
     </div>
@@ -18,19 +18,12 @@ const loadPictures = (prehlidkaArr) => {
         desc = prehlidka.description.slice(0, 30) + "...";
       }
 
-      console.log(prehlidka);
-
-      console.log(
-        "PREVIEW:::",
-        prehlidka.photos[prehlidka.indexOfPreview || 0]
-      );
-
       const imgHref = prehlidka.photos[prehlidka.indexOfPreview || 0].url;
       return `
     <div class="prehlidka" data-href="/prehlidky/${prehlidka.link.current}">
     <h2 class="prehlidka-heading">${prehlidka.title}</h2>
     <p class="prehlidka-year">${prehlidka.year}</p>
-    <img src="${imgHref}" alt="prehlidka thumbnail" class="prehlidka-thm">
+    <img src="${imgHref}?fm=webp&q=70" alt="prehlidka thumbnail" class="prehlidka-thm">
   </div>
     `;
     })
