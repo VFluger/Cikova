@@ -42,9 +42,7 @@ const importImgs = (col) => {
         `
       <div class="painting-container vert scroll-hidden">
           <div class="text-container">
-            <h3 class="absolute pain-head">${
-              imgObj.heading ? imgObj.heading : ""
-            }
+            <h3 class="absolute pain-head">${imgObj.title ? imgObj.title : ""}
             </h3>
             <p class="absolute pain-info">${
               imgObj.description ? imgObj.description : ""
